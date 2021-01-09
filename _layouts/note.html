@@ -1,0 +1,52 @@
+---
+layout: notes
+---
+
+<div id="toc">
+</div>
+
+<div style="margin-top: 20px; margin-bottom: 20px" class="ui text container">
+  <h1 id="">{{ page.title }}</h1>
+  <hr>
+
+  {{ content }}
+</div>
+
+<style>
+#toc {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background-color:#FFF;
+  overflow-y:auto;
+}
+</style>
+
+<script>
+    var ToC =
+    "<nav role='navigation'>";
+
+    var newLine, el, title, link;
+
+    $("h1").each(function() {
+
+        el = $(this);
+
+        title = el.text();
+        link = "#" + el.attr("id");
+
+        activeLine =
+            "<a href='" + link + "'>" +
+                title +
+            "</a>" +
+            "<br />";
+
+        ToC += activeLine;
+
+    });
+
+    ToC += "</nav>";
+
+    document.getElementById("toc").innerHTML = ToC;
+
+</script>

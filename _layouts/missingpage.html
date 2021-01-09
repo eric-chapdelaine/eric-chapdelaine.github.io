@@ -5,23 +5,17 @@ layout: default
 {% include menubar.html active="" %}
 
 <div style="padding-top: 20px" class="ui container ">
-  <p>I'm sorry, that URL could not be found. Perhaps you were looking for one of the following:</p>
+    <h1>404: Page not Found</h1>
+    <br>
+    <p>Looks like the page you were looking for does not exist. If you clicked on a link that lead you here, please contact me at 
+    chapdelaine.e@northeastern.edu and I will fix it as soon as I can.</p>
 
-  <h3>Essays</h3>
-  <ul>
-    {% assign essay_pages = site.pages | where: "type", "essay" | sort: "date" | reverse %}
-    {% for page in essay_pages %}
-      <li><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></li>
-    {% endfor %}
-  </ul>
-
-  <h3>Projects</h3>
-  <ul>
-    {% assign project_pages = site.pages | where: "type", "project" | sort: "title" %}
-    {% for page in project_pages %}
-    <li><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></li>
-    {% endfor %}
-  </ul>
-
+    <button onclick="goBack()">Go Back</button>
 </div>
 
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
