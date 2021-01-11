@@ -20,7 +20,9 @@ layout: notes
     <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
     </script>
 
-  {{ content }}
+    <div id="doc">
+        {{ content }}
+    </div>
 </div>
 
 <style>
@@ -31,11 +33,31 @@ layout: notes
   background-color:#FFF;
   overflow-y:auto;
 }
+.active {
+    background-color: blue;
+}
 </style>
 
 <script>
-    var ToC =
-    "<nav role='navigation'>";
+
+    //Create sections which are defined as area between two h1's
+    const regex = /<h1\s*\S.*?(?=\s*<h1|$)/gs;
+    var doc = document.getElementById('doc').innerHTML;
+    var headers = doc.match(regex);
+
+    curID_regex = /(?<=").*?(?=")/gs;
+    var newHTML, curID;
+    document.getElementById('doc').innerHTML = "";
+    for (var i = 0; i < headers.length ; i++) {
+        //headers[i] = '<section id=' + i + '>' + headers[i] + '</section>'; 
+        //document.getElementsByTagName('body')[0].innerHTML += headers[i];
+        curID = headers[i].match(curID_regex)[0];
+        document.getElementById('doc').innerHTML += "<section id='" + curID + "'>" +  headers[i] + "</section>";
+        //document.getElementById('doc').innerHTML += "<section>" +  headers[i] + "</section>";
+    }
+    
+    // Create Left Navagation:
+    var ToC = "<nav>";
 
     var activeLine, el, title, link;
 
@@ -59,5 +81,29 @@ layout: notes
     ToC += "</nav>";
 
     document.getElementById("toc").innerHTML = ToC;
+
+
+    // Auto activation:
+
+    //TODO: This is scalable!! So scale it up for h2 and h3
+    window.addEventListener('DOMContentLoaded', () => {
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                if (entry.intersectionRatio > 0) {
+                    document.querySelector(`div nav a[href="#${id}"]`).classList.add('active');
+                } else {
+                    document.querySelector(`div nav a[href="#${id}"]`).classList.remove('active');
+                }
+            });
+        });
+
+        // Track all sections and if observing, activate
+        document.querySelectorAll('section[id]').forEach((section) => {
+            observer.observe(section);
+        });
+        
+    });
 
 </script>
