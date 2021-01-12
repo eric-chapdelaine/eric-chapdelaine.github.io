@@ -2,10 +2,12 @@
 layout: notes
 ---
 
+<script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js">
+</script>
 
-<div id="toc"></div>
+<div id="toc" class="nonprintable"></div>
 
-<div id="sidebar"></div>
+<div id="sidebar" class="nonprintable"></div>
 
 <div style="margin-top: 20px; margin-bottom: 20px" class="ui text container">
   <h1 id="">{{ page.title }}</h1>
@@ -46,11 +48,15 @@ layout: notes
     overflow: hidden;
 }
 .active {
-    background-color: blue;
+    font-weight: bold;
 }
 </style>
 
 <script>
+    var scroll = new SmoothScroll('a[href*="#"]', {
+        speed: 500,
+        speedAsDuration: true
+    });
 
     // Onetime:
     //Create sections which are defined as area between two h1's
@@ -63,12 +69,12 @@ layout: notes
     any_header = /(?<=<h[123][^>]*>)\s*\S.*?(?=\s*<\/h[123]|$)/gs;
     var newHTML, curIDs, cur_headers;
     document.getElementById('doc').innerHTML = "";
-    var sidebar = "<nav>";
+    var sidebar = "<nav>In Current Section:";
     for (var i = 0; i < headers.length ; i++) {
         //Sidebar
         cur_headers = headers[i].match(any_header);
         curIDs = headers[i].match(curID_regex);
-        sidebar += "<div id='" + curIDs[0] + "' hidden>";
+        sidebar += "<div section='" + curIDs[0] + "' hidden>";
 
         for (var j = 0; j < cur_headers.length ; j++){
             sidebar += "<a href='#" + curIDs[j] + "'>" + cur_headers[j] + "</a><br />";
@@ -81,7 +87,7 @@ layout: notes
     document.getElementById("sidebar").innerHTML = sidebar;
     
     // Create Left Navagation:
-    var ToC = "<nav>";
+    var ToC = "<nav>Current Class: ";
 
     var activeLine, el, title, link;
 
@@ -117,10 +123,10 @@ layout: notes
                 const id = entry.target.getAttribute('id');
                 if (entry.intersectionRatio > 0) {
                     document.querySelector(`div[id="toc"] nav a[href="#${id}"]`).classList.add('active');
-                    document.querySelector(`div[id="sidebar"] nav div[id="${id}"]`).hidden = false;
+                    document.querySelector(`div[id="sidebar"] nav div[section="${id}"]`).hidden = false;
                 } else {
                     document.querySelector(`div[id="toc"] nav a[href="#${id}"]`).classList.remove('active');
-                    document.querySelector(`div[id="sidebar"] nav div[id="${id}"]`).hidden = true;
+                    document.querySelector(`div[id="sidebar"] nav div[section="${id}"]`).hidden = true;
                 }
             });
         });
@@ -133,3 +139,4 @@ layout: notes
     });
 
 </script>
+
