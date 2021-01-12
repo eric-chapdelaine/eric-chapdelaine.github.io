@@ -6,6 +6,10 @@ layout: notes
 <div id="toc">
 </div>
 
+<div id="sidebar">
+    Beans
+</div>
+
 <div style="margin-top: 20px; margin-bottom: 20px" class="ui text container">
   <h1 id="">{{ page.title }}</h1>
   <hr>
@@ -28,33 +32,57 @@ layout: notes
 <style>
 #toc {
   position: fixed;
+  height: 90%;
   left: 0;
   bottom: 0;
   background-color:#FFF;
-  overflow-y:auto;
+  overflow-y: scroll;
+}
+#sidebar {
+    position: fixed;
+    height: 90%;
+    right: 0;
+    bottom: 0;
+    background-color:#FFF;
+    overflow-y: scroll;
 }
 .active {
     background-color: blue;
+}
+
+.active-sidebar {
 }
 </style>
 
 <script>
 
+    // Onetime:
     //Create sections which are defined as area between two h1's
     const regex = /<h1\s*\S.*?(?=\s*<h1|$)/gs;
     var doc = document.getElementById('doc').innerHTML;
     var headers = doc.match(regex);
 
-    curID_regex = /(?<=").*?(?=")/gs;
-    var newHTML, curID;
+    curID_regex = /(?<=<h[1-3][^>]*id=").*?(?=")/gs;
+    // TODO: Maybe make this handle only one header type 
+    any_header = /(?<=<h[123][^>]*>)\s*\S.*?(?=\s*<\/h[123]|$)/gs;
+    var newHTML, curIDs, cur_headers;
     document.getElementById('doc').innerHTML = "";
+    var sidebar = "<nav>";
     for (var i = 0; i < headers.length ; i++) {
-        //headers[i] = '<section id=' + i + '>' + headers[i] + '</section>'; 
-        //document.getElementsByTagName('body')[0].innerHTML += headers[i];
-        curID = headers[i].match(curID_regex)[0];
-        document.getElementById('doc').innerHTML += "<section id='" + curID + "'>" +  headers[i] + "</section>";
-        //document.getElementById('doc').innerHTML += "<section>" +  headers[i] + "</section>";
+        //Sidebar
+        cur_headers = headers[i].match(any_header);
+        sidebar += "<div>";
+        curIDs = headers[i].match(curID_regex);
+
+        for (var j = 0; j < cur_headers.length ; j++){
+            sidebar += "<a href='#" + curIDs[j] + "'>" + cur_headers[j] + "</a><br />";
+        }
+        sidebar += "</div><hr>";
+
+        // Body
+        document.getElementById('doc').innerHTML += "<section id='" + curIDs[0] + "'>" +  headers[i] + "</section>";
     }
+    document.getElementById("sidebar").innerHTML = sidebar;
     
     // Create Left Navagation:
     var ToC = "<nav>";
@@ -92,9 +120,9 @@ layout: notes
             entries.forEach(entry => {
                 const id = entry.target.getAttribute('id');
                 if (entry.intersectionRatio > 0) {
-                    document.querySelector(`div nav a[href="#${id}"]`).classList.add('active');
+                    document.querySelector(`div[id="toc"] nav a[href="#${id}"]`).classList.add('active');
                 } else {
-                    document.querySelector(`div nav a[href="#${id}"]`).classList.remove('active');
+                    document.querySelector(`div[id="toc"] nav a[href="#${id}"]`).classList.remove('active');
                 }
             });
         });
