@@ -3,12 +3,9 @@ layout: notes
 ---
 
 
-<div id="toc">
-</div>
+<div id="toc"></div>
 
-<div id="sidebar">
-    Beans
-</div>
+<div id="sidebar"></div>
 
 <div style="margin-top: 20px; margin-bottom: 20px" class="ui text container">
   <h1 id="">{{ page.title }}</h1>
@@ -33,24 +30,23 @@ layout: notes
 #toc {
   position: fixed;
   height: 90%;
+  width: calc(50% - 350px);
   left: 0;
   bottom: 0;
-  background-color:#FFF;
   overflow-y: scroll;
+  overflow: hidden;
 }
 #sidebar {
     position: fixed;
     height: 90%;
+    width: calc(50% - 350px);
     right: 0;
     bottom: 0;
-    background-color:#FFF;
     overflow-y: scroll;
+    overflow: hidden;
 }
 .active {
     background-color: blue;
-}
-
-.active-sidebar {
 }
 </style>
 
@@ -71,13 +67,13 @@ layout: notes
     for (var i = 0; i < headers.length ; i++) {
         //Sidebar
         cur_headers = headers[i].match(any_header);
-        sidebar += "<div>";
         curIDs = headers[i].match(curID_regex);
+        sidebar += "<div id='" + curIDs[0] + "' hidden>";
 
         for (var j = 0; j < cur_headers.length ; j++){
             sidebar += "<a href='#" + curIDs[j] + "'>" + cur_headers[j] + "</a><br />";
         }
-        sidebar += "</div><hr>";
+        sidebar += "</div>";
 
         // Body
         document.getElementById('doc').innerHTML += "<section id='" + curIDs[0] + "'>" +  headers[i] + "</section>";
@@ -121,8 +117,10 @@ layout: notes
                 const id = entry.target.getAttribute('id');
                 if (entry.intersectionRatio > 0) {
                     document.querySelector(`div[id="toc"] nav a[href="#${id}"]`).classList.add('active');
+                    document.querySelector(`div[id="sidebar"] nav div[id="${id}"]`).hidden = false;
                 } else {
                     document.querySelector(`div[id="toc"] nav a[href="#${id}"]`).classList.remove('active');
+                    document.querySelector(`div[id="sidebar"] nav div[id="${id}"]`).hidden = true;
                 }
             });
         });
