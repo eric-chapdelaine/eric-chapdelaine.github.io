@@ -6,11 +6,11 @@ baseurl: ""
 
 bio-page-label: Resume
 
-theme-home: theme-home-builtin-1.html
-theme-projects: theme-projects-builtin-1.html
-theme-essays: theme-essays-builtin-1.html
-theme-bio: theme-bio-builtin-1.html
-theme-notes: theme-notes-1.html
+theme-home: theme-home-bulletin.html
+theme-projects: theme-projects-bulletin.html
+theme-essays: theme-essays-bulletin.html
+theme-bio: theme-bio-bulletin.html
+theme-notes: theme-notes.html
 
 # From css/rouge
 rouge-theme: github

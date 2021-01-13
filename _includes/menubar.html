@@ -1,5 +1,3 @@
-<!-- Used by all builtin themes. Now we list number of essays and projects. -->
-
 {% assign essay_pages = site.pages | where: "type", "essay"  | where_exp: "page", "page.draft != true" %}
 {% assign project_pages = site.pages | where: "type", "project" | where_exp: "page", "page.draft != true" %}
 {% assign num_essays = essay_pages.size %}
@@ -17,6 +15,7 @@
     {% if num_essays > 0 %}
     <a href="{{ site.baseurl }}/essays" class=" {% if include.active == "essays" %} active {% endif %} item">Essays ({{ num_essays }})</a>
     {% endif %}
-    <a href="{{ site.baseurl }}/bio" class=" {% if include.active == "bio" %} active {% endif %} item">{{ site.bio-page-label }}</a>
+    <a href="{{ site.baseurl }}/resume" class=" {% if include.active == "bio" %} active {% endif %} item">{{ site.bio-page-label }}</a>
   </nav>
 </div>
+
