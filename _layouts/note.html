@@ -2,8 +2,6 @@
 layout: notes
 ---
 
-<script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js">
-</script>
 
 <div id="toc" class="nonprintable"></div>
 
@@ -12,45 +10,11 @@ layout: notes
 <div style="margin-top: 20px; margin-bottom: 20px" class="ui text container">
   <h1 id="">{{ page.title }}</h1>
   <hr>
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-        processEscapes: true
-        }
-    });
-    </script>
-    <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
-    </script>
 
     <div id="doc">
         {{ content }}
     </div>
 </div>
-
-<style>
-#toc {
-  position: fixed;
-  height: 90%;
-  width: calc(50% - 350px);
-  left: 0;
-  bottom: 0;
-  overflow-y: scroll;
-  overflow: hidden;
-}
-#sidebar {
-    position: fixed;
-    height: 90%;
-    width: calc(50% - 350px);
-    right: 0;
-    bottom: 0;
-    overflow-y: scroll;
-    overflow: hidden;
-}
-.active {
-    font-weight: bold;
-}
-</style>
 
 <script>
     var scroll = new SmoothScroll('a[href*="#"]', {
