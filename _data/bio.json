@@ -70,6 +70,15 @@
       ]
     }
   ],
+  "volunteer":[
+      {
+      "position": "Student Tutor",
+      "organization": "West High School",
+      "summary": "Tutored students at West High School on a variety of subjects.",
+      "startDate": "2019-12-01",
+      "endDate": "2020-5-01"
+      }
+  ],
   "education": [
     {
       "institution": "The Derryfield School, Manchester, NH",
