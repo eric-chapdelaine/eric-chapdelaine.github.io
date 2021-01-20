@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="240mm"
+   height="120mm"
+   viewBox="0 0 240 120"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   sodipodi:docname="lec_1_ex.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.99437388"
+     inkscape:cx="175.56118"
+     inkscape:cy="182.72055"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     showborder="true"
+     width="200mm"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:window-width="790"
+     inkscape:window-height="848"
+     inkscape:window-x="802"
+     inkscape:window-y="44"
+     inkscape:window-maximized="0">
+    <inkscape:grid
+       type="xygrid"
+       id="grid815"
+       units="mm"
+       spacingx="10"
+       spacingy="10"
+       empspacing="4"
+       dotted="false" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-177)">
+    <rect
+       style="opacity:0.52999998;fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+       id="rect816"
+       width="39.379887"
+       height="15.432658"
+       x="19.956024"
+       y="237.13193" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="27.406275"
+       y="247.77513"
+       id="text820"><tspan
+         sodipodi:role="line"
+         id="tspan818"
+         x="27.406275"
+         y="247.77513"
+         style="stroke-width:0.26458332">CAR</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="79.824097"
+       y="262.67563"
+       id="text828"><tspan
+         sodipodi:role="line"
+         id="tspan826"
+         x="79.824097"
+         y="262.67563"
+         style="stroke-width:0.26458332">1 Mile</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 118.13967,261.8774 c 4.2808,-1.90674 16.8038,4.21654 19.95602,1.06432 1.39252,-1.39252 -5.42836,-4.78945 -3.45904,-4.78945 1.34316,0 4.07613,6.21608 3.9912,6.38593 -1.28826,2.57652 -5.58768,-0.41562 -5.58768,3.72512"
+       id="path830"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 76.631135,261.34523 c -1.694283,0.45 -22.084667,-1.64331 -22.084667,-2.92688 0,-1.34217 2.790727,0.0681 3.991205,-0.53216 1.564629,-0.78231 5.760312,-3.89775 4.523364,-2.6608 -5.651085,5.65108 -16.005953,0.94143 0.266081,7.45025"
+       id="path836"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="23.148989"
+       y="265.60251"
+       id="text840"><tspan
+         sodipodi:role="line"
+         id="tspan838"
+         x="23.148989"
+         y="265.60251"
+         style="stroke-width:0.26458332">noon</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="145.54594"
+       y="265.86859"
+       id="text844"><tspan
+         sodipodi:role="line"
+         id="tspan842"
+         x="145.54594"
+         y="265.86859"
+         style="stroke-width:0.26458332">12:02pm</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 59.33591,237.13193 c 2.058839,-6.28724 -1.064318,-16.81902 -1.064318,-24.74548"
+       id="path846"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 134.37057,249.6377 c -3.09747,-11.25924 -1.59648,-24.25174 -1.59648,-36.18693"
+       id="path850"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="42.838936"
+       y="211.5882"
+       id="text854"><tspan
+         sodipodi:role="line"
+         id="tspan852"
+         x="42.838936"
+         y="211.5882"
+         style="stroke-width:0.26458332">37 mile</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="113.35022"
+       y="212.12038"
+       id="text858"><tspan
+         sodipodi:role="line"
+         id="tspan856"
+         x="113.35022"
+         y="212.12038"
+         style="stroke-width:0.26458332">38 mile</tspan></text>
+  </g>
+</svg>
