@@ -1,4 +1,4 @@
-<div class="card">
+<a class="card" href="{{ site.baseurl }}{{ include.page.url | split: '.html'[0] }}">
   <div class="content">
     <span class="header">{{ include.page.title }}</span>
     <div class="meta">
@@ -7,6 +7,4 @@
         <span class="date">Professor: {{ include.page.professor }}</span>
     </div>
   </div>
-
-  <a class="ui bottom attached button" href="{{ site.baseurl }}{{ include.page.url | split: '.html'[0] }}">See Notes</a>
-</div>
+</a>
