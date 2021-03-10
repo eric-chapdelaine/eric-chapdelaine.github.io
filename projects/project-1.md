@@ -3,7 +3,7 @@ layout: project
 type: project
 image: images/silva-search.png
 title: SilvaUI 
-permalink: projects/micromouse
+permalink: projects/silvaui
 # All dates must be YYYY-MM-DD format!
 date: 2020-05-01
 labels:
