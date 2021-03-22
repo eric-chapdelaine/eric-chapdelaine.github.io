@@ -1,0 +1,248 @@
+I"�*<p><a href="https://litdigitaldiversity.northeastern.edu/schedule/">Class Website</a></p>
+
+<h1 id="the-class">The Class</h1>
+
+<p>The Cannon wars: the idea that we usually only read material from white men</p>
+
+<p>What does it mean to broaden whose voices we hear.</p>
+<ul>
+  <li>The more inclusive that is, the more just the world is</li>
+</ul>
+
+<p>The digital world wold <em>algorithm bias</em> as it represents the biases of the past.</p>
+
+<p>The 3 Units of the Class:</p>
+<ul>
+  <li>Exploration of ‘Text Encoding’ (very close reading)</li>
+  <li>Text analysis
+    <ul>
+      <li>we will be using the programming language <code class="language-plaintext highlighter-rouge">R</code> for machine learning</li>
+    </ul>
+  </li>
+  <li>Digital archive creation</li>
+</ul>
+
+<h1 id="the-tempest">The Tempest</h1>
+
+<h2 id="text-encoding">Text Encoding</h2>
+
+<p>How has the text evolved from when it was originally written to the online version?</p>
+
+<p>The production of our Tempest edition</p>
+<ul>
+  <li>1611 play is performed, circulates in manuscript</li>
+  <li>1623 First Folio</li>
+  <li>Print Folger editions (synthetic)</li>
+  <li>TEI edition</li>
+  <li>Web edition</li>
+</ul>
+
+<h2 id="context">Context</h2>
+<p>Inspired by a true ship reck</p>
+
+<p><strong>The Great Chain of Being:</strong> Represents the hierarchy of things during the time of Shakespeare</p>
+<ul>
+  <li>God</li>
+  <li>Angles</li>
+  <li>Humans</li>
+  <li>Beast</li>
+  <li>Plant</li>
+  <li>Flame</li>
+  <li>Stone</li>
+</ul>
+
+<p><a href="https://shakespeare.folger.edu/shakespeares-works/the-tempest/act-1-scene-1/">Online Text</a></p>
+
+<h3 id="act-i-scene-i">Act i, Scene i</h3>
+
+<p>Class is very huge in this society–they are <em>not</em> equals.</p>
+<ul>
+  <li>It starts off with a dispute between the aristocrats and the workers</li>
+</ul>
+
+<p>In the beginning of the book, there are different ideas of authority</p>
+<ul>
+  <li>The workers see themselves as more powerful because they have the power to save the ship</li>
+  <li>The aristocrats see themselves are more powerful because they are higher class</li>
+</ul>
+
+<h3 id="act-ii-scene-ii">Act ii, Scene ii</h3>
+
+<p>Magic is introduced</p>
+
+<h2 id="gender-in-the-tempest">Gender in The Tempest</h2>
+
+<p>Why was Miranda’s virginity so important throughout this play?</p>
+<ul>
+  <li>Virginity – and general purity – were seen as valuable during the time</li>
+  <li>Possibility</li>
+</ul>
+
+<p>Marriage was more of a transaction instead of falling in love (as it is today)</p>
+
+<h2 id="summary-and-themes">Summary and Themes</h2>
+
+<p>Act 2, Scene 1</p>
+<ul>
+  <li>Prospero tries to control the narrative</li>
+</ul>
+
+<p>Themes:</p>
+<ul>
+  <li>Loyalty and Betrayal</li>
+  <li>Visibility</li>
+  <li>Ambition</li>
+</ul>
+
+<p>Act 2, Scene 2</p>
+<ul>
+  <li>Caliban looks for a new leader
+    <ul>
+      <li>Is attracted to Stephino and Trinculo</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Act 3, Scene 1</p>
+<ul>
+  <li>Ferdidnand does labor for Prospero</li>
+  <li>Discusses how virginity is important</li>
+</ul>
+
+<p>Act 3, Scene 2</p>
+<ul>
+  <li>When Caliban, Stephino, and Trinulo are drunk and planning to kill Prospero</li>
+  <li>Objectifying Miranda</li>
+</ul>
+
+<p>Themes:</p>
+<ul>
+  <li>Loyalty</li>
+  <li>When Prospero no longer has a grip over what Caliban does</li>
+</ul>
+
+<p>Act 3, Scene 3</p>
+<ul>
+  <li>The prisoners on the island are very hungry and a magical table of food comes down, but disappears. Ariel, in costume, acts as a god to make them feel guilt.</li>
+</ul>
+
+<p>Act 4, Scene 1</p>
+<ul>
+  <li>The engagement of Ferdinand and Miranda using spirits
+    <ul>
+      <li>The ‘play’ of the engagement represents Prospero’s power</li>
+    </ul>
+  </li>
+  <li>Caliban, Trinculo, and Stephino are drunk and trying to act out their plans to kill Prospero</li>
+</ul>
+
+<p>Act 5, Scene 1</p>
+<ul>
+  <li>Prospero forgives all and breaks his wand and drowns his books.</li>
+</ul>
+
+<h1 id="tei-text-encoding">TEI Text-encoding</h1>
+
+<p>TEI is a particular flavor that describes how to use XML to fit their standards.</p>
+
+<p>Stripping down the document to the bare bones</p>
+<ul>
+  <li>But removes the ambiguity</li>
+</ul>
+
+<p><strong>Model</strong>: Useful distortion so that something can be studied (We need to cut information to make something practical)</p>
+
+<h3 id="what-is-xml">What is XML?</h3>
+
+<p>Governing the rules for elements – looks similar to HTML.</p>
+
+<p>Elements have start tags <code class="language-plaintext highlighter-rouge">&lt;...&gt;</code> and end tags <code class="language-plaintext highlighter-rouge">&lt;/...&gt;</code></p>
+
+<p>Examples: <code class="language-plaintext highlighter-rouge">&lt;speaker name="Bob"&gt;</code></p>
+<ul>
+  <li>Attributes: <code class="language-plaintext highlighter-rouge">name</code></li>
+  <li>Name: <code class="language-plaintext highlighter-rouge">speaker</code></li>
+</ul>
+
+<p><strong>Metadata</strong>: Data about the data itself</p>
+<ul>
+  <li>Examples: Publication date, title, etc.</li>
+</ul>
+
+<h2 id="tei">TEI</h2>
+<p>Has a header (holds meta data)</p>
+
+<p>Has the text (has the body of the document)</p>
+<ul>
+  <li>Required to have a body</li>
+</ul>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;teiHeader&gt;</span>
+...
+<span class="nt">&lt;/teiHeader&gt;</span>
+<span class="nt">&lt;text&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        ...
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/text&gt;</span>
+</code></pre></div></div>
+
+<p><strong>Example</strong>:</p>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nt">&lt;head&gt;</span>EPILOGVE,<span class="nt">&lt;/head&gt;</span>
+      <span class="nt">&lt;sp&gt;</span>       
+         <span class="nt">&lt;stage</span> <span class="na">type=</span><span class="s">"delivery"</span><span class="nt">&gt;</span>spoken by <span class="nt">&lt;persName&gt;</span>Prospero<span class="nt">&lt;/persName&gt;</span>.<span class="nt">&lt;/stage&gt;</span>
+      <span class="nt">&lt;lg</span> <span class="na">rhyme=</span><span class="s">"abababa"</span><span class="nt">&gt;&lt;l&gt;</span>NOw my Charmes are all <span class="nt">&lt;rhyme&gt;</span>ore-throwne<span class="nt">&lt;/rhyme&gt;</span>,<span class="nt">&lt;/l&gt;</span>
+      <span class="nt">&lt;l&gt;</span>And what strength I <span class="nt">&lt;choice&gt;&lt;orig&gt;</span>haue's<span class="nt">&lt;/orig&gt;&lt;reg&gt;</span>have's<span class="nt">&lt;/reg&gt;&lt;/choice&gt;</span> mine owne.<span class="nt">&lt;/l&gt;</span>
+      <span class="nt">&lt;l&gt;</span>Which is most faint: now 'tis true<span class="nt">&lt;/l&gt;</span>
+      <span class="nt">&lt;l&gt;</span>I must be heere confinde by you,<span class="nt">&lt;/l&gt;</span>
+      <span class="nt">&lt;l&gt;</span>Or sent to <span class="nt">&lt;placeName&gt;</span>Naples<span class="nt">&lt;/placeName&gt;</span>, Let me not<span class="nt">&lt;/l&gt;</span>
+      <span class="nt">&lt;l&gt;</span>Since I haue my Dukedome got,<span class="nt">&lt;/l&gt;</span>
+      <span class="nt">&lt;l&gt;</span>And pardon'd the deceiuer, dwell<span class="nt">&lt;/l&gt;</span>
+      <span class="nt">&lt;l&gt;</span>In this bare Island, by your Spell,<span class="nt">&lt;/l&gt;</span>
+      <span class="nt">&lt;l&gt;</span>But release me from my bands<span class="nt">&lt;/l&gt;</span>
+      <span class="nt">&lt;l&gt;</span>With the helpe of your good hands:<span class="nt">&lt;/l&gt;</span>
+      <span class="nt">&lt;l&gt;</span>Gentle breath of yours, my Sailes<span class="nt">&lt;/l&gt;</span>
+      <span class="nt">&lt;l&gt;</span>Must fill, or else my proiect failes,<span class="nt">&lt;/l&gt;</span>
+      <span class="nt">&lt;l&gt;</span>Which was to please: Now I want<span class="nt">&lt;/l&gt;</span>
+      <span class="nt">&lt;l&gt;</span>Spirits to enforce: Art to inchant,<span class="nt">&lt;/l&gt;</span>
+      <span class="nt">&lt;l&gt;</span>And my ending is despaire,<span class="nt">&lt;/l&gt;</span>
+      <span class="nt">&lt;l&gt;</span>Vnlesse I be relieu'd by praier<span class="nt">&lt;/l&gt;</span>
+      <span class="nt">&lt;l&gt;</span>Which pierces so, that it assaults<span class="nt">&lt;/l&gt;</span>
+      <span class="nt">&lt;l&gt;</span>Mercy it selfe, and frees all faults.<span class="nt">&lt;/l&gt;</span>
+      <span class="nt">&lt;l&gt;</span>As you from crimes would pardon'd be,<span class="nt">&lt;/l&gt;</span>
+      <span class="nt">&lt;l&gt;</span>Let your Indulgence set me free.<span class="nt">&lt;/l&gt;&lt;/lg&gt;</span> <span class="nt">&lt;stage</span> <span class="na">type=</span><span class="s">"exit"</span><span class="nt">&gt;</span>Exit.<span class="nt">&lt;/stage&gt;&lt;/sp&gt;</span>
+</code></pre></div></div>
+
+<p>Whenever you want to tell TEI the alignment of the text, use the attribute <code class="language-plaintext highlighter-rouge">style</code> (CSS).</p>
+
+<p>Example:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p</span> <span class="na">style=</span><span class="s">"text-align:center"</span><span class="nt">&gt;</span>Some text here. <span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">style=</span><span class="s">"text-align:right; font-size:italic"</span><span class="nt">&gt;</span>More text here.<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+
+<p>See <a href="https://docs.google.com/document/d/1iE3VzuST5B68HX522NbBVrm0iYhlVybRewj1pKHoDxw/edit#heading=h.zc1mlj63pl2j">this Google Doc</a> for more information.</p>
+
+<p>Identification</p>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;rs</span> <span class="na">type=</span><span class="s">"person-group"</span> <span class="na">style=</span><span class="s">"font-style:italic"</span><span class="nt">&gt;</span>White men<span class="nt">&lt;/rs&gt;</span>
+<span class="nt">&lt;rs</span> <span class="na">type=</span><span class="s">"person"</span><span class="nt">&gt;</span>Our fearless TA<span class="nt">&lt;/rs&gt;</span>
+<span class="nt">&lt;hi</span> <span class="na">style=</span><span class="s">"font-style:italic"</span><span class="nt">&gt;</span>test<span class="nt">&lt;/hi&gt;</span> <span class="c">&lt;!-- highlight --!&gt;
+...
+&lt;persName xml:id="anchor1" corresp="#note1"&gt;Alanna&lt;/persName&gt;
+...
+&lt;fw type="signature"&gt;B1&lt;/fw&gt;
+&lt;fw type="catchword"&gt;More&lt;/fw&gt;
+&lt;pb /&gt;
+&lt;fw type="pagenumber"&gt;2&lt;/fw&gt;
+...
+&lt;choice&gt;&lt;orig&gt;Liberty&lt;/orig&gt;&lt;reg&gt;liberty&lt;/reg&gt;&lt;/choice&gt;
+...
+&lt;back&gt;
+    &lt;div type="editorial"&gt;
+        &lt;note xml:id="note1" target="#anchor1"&gt;&lt;p&gt;Alanna Price is a PhD student in English at Northeastern&lt;/p&gt;&lt;/note&gt;
+    &lt;/div&gt;
+&lt;/back&gt;
+
+</span></code></pre></div></div>
+
+:ET

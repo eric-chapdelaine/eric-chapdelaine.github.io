@@ -3,25 +3,23 @@ layout: notes
 ---
 
 
-<div id="toc" class="nonprintable"></div>
+<!-- <div id="toc" class="nonprintable"></div> -->
 
-<div id="sidebar" class="nonprintable"></div>
+<div class="contents" class="nonprintable"></div>
 
-<div style="margin-top: 20px; margin-bottom: 20px" class="ui text container">
-  <h1 id="">{{ page.title }}</h1>
+
+<div class="segment ui text container document">
+  <h1 id=""><span class="half-background">{{ page.title }}</span></h1>
   <hr>
 
+        <button class="ui button" onClick="setDetails(false);">Close all sections</button>
+        <button class="ui button" onClick="setDetails(true);">Open all sections</button>
     <div id="doc">
         {{ content }}
     </div>
 </div>
 
 <script>
-    var scroll = new SmoothScroll('a[href*="#"]', {
-        speed: 500,
-        speedAsDuration: true
-    });
-
     // Onetime:
     //Create sections which are defined as area between two h1's
     const regex = /<h1\s*\S.*?(?=\s*<h1|$)/gs;
@@ -33,73 +31,31 @@ layout: notes
     any_header = /(?<=<h[123][^>]*>)\s*\S.*?(?=\s*<\/h[123]|$)/gs;
     var newHTML, curIDs, cur_headers;
     document.getElementById('doc').innerHTML = "";
-    var sidebar = "<nav>In Current Section:";
+    var contents = "<nav>In Open Sections:";
     for (var i = 0; i < headers.length ; i++) {
-        //Sidebar
+        //contents
         cur_headers = headers[i].match(any_header);
         curIDs = headers[i].match(curID_regex);
-        sidebar += "<div section='" + curIDs[0] + "' hidden>";
+        contents += "<div data-id='" + curIDs[0] + "' hidden>";
 
         for (var j = 0; j < cur_headers.length ; j++){
-            sidebar += "<a href='#" + curIDs[j] + "'>" + cur_headers[j] + "</a><br />";
+            contents += "<a href='#" + curIDs[j] + "'>" + cur_headers[j] + "</a><br />";
         }
-        sidebar += "</div>";
+        contents += "</div>";
 
         // Body
-        document.getElementById('doc').innerHTML += "<section id='" + curIDs[0] + "'>" +  headers[i] + "</section>";
+        document.getElementById('doc').innerHTML += "<details id='" + curIDs[0] + "'><summary>" + headers[i].match(any_header)[0] + "</summary>" + headers[i] + "</details>";
     }
-    document.getElementById("sidebar").innerHTML = sidebar;
+    document.getElementsByClassName("contents")[0].innerHTML = contents;
     
-    // Create Left Navagation:
-    var ToC = "<nav>Current Class: ";
+    // Auto showing of sub-sections
+    function showSubsections(e) {
+        const item = document.querySelector(`[data-id=${e.target.id}]`);
+        item.toggleAttribute('hidden');
+    }
 
-    var activeLine, el, title, link;
-
-    $("h1").each(function() {
-
-        el = $(this);
-
-        title = el.text();
-        link = "#" + el.attr("id");
-
-        activeLine =
-            "<a href='" + link + "'>" +
-                title +
-            "</a>" +
-            "<br />";
-
-        ToC += activeLine;
-
+    const sections = document.querySelectorAll('details');
+    sections.forEach((section) => {
+        section.addEventListener('toggle', showSubsections);
     });
-
-    ToC += "</nav>";
-
-    document.getElementById("toc").innerHTML = ToC;
-
-
-    // Auto activation:
-
-    //TODO: This is scalable!! So scale it up for h2 and h3
-    window.addEventListener('DOMContentLoaded', () => {
-
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                const id = entry.target.getAttribute('id');
-                if (entry.intersectionRatio > 0) {
-                    document.querySelector(`div[id="toc"] nav a[href="#${id}"]`).classList.add('active');
-                    document.querySelector(`div[id="sidebar"] nav div[section="${id}"]`).hidden = false;
-                } else {
-                    document.querySelector(`div[id="toc"] nav a[href="#${id}"]`).classList.remove('active');
-                    document.querySelector(`div[id="sidebar"] nav div[section="${id}"]`).hidden = true;
-                }
-            });
-        });
-
-        // Track all sections and if observing, activate
-        document.querySelectorAll('section[id]').forEach((section) => {
-            observer.observe(section);
-        });
-        
-    });
-
 </script>

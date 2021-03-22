@@ -1,0 +1,87 @@
+/* html {
+    width: 67%;
+    transform: scale(1.5);
+    transform-origin: 0 0;
+} */
+
+.half-background {
+    background: linear-gradient(to top, rgba(241, 196, 15, 128) 33%, transparent 33%);
+}
+
+code.highlighter-rouge {
+    color: crimson; 
+    background-color: #f0f0f0;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+body {
+    background-color: #dfe6e9;
+    font-family: "Lato", sans-serif;
+}
+
+blockquote {
+    background: #f9f9f9;
+    border-left: 5px solid #ccc;
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
+}
+
+.title {
+    color: black;
+    font-weight: bold;
+}
+
+.document {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* The Sidebar in Classes */
+.contents {
+    position: fixed;
+    height: 90%;
+    width: calc(50% - 355px);
+    right: 0;
+    top: 20px;
+    overflow-y: scroll;
+    /* overflow: hidden; */
+}
+
+/* Sidebar */
+.sidenav {
+  width: calc(50% - 370px);
+  position: fixed;
+  z-index: 1;
+  top: 20px;
+  left: 10px;
+  /* background: rgb(66, 201, 255); */
+  overflow-x: hidden;
+  padding: 8px 0;
+}
+
+.topbar {
+    display: none;
+}
+
+.menu {
+    display: none;
+}
+
+@media (max-width: 930px) {
+    .sidenav {
+        display: none;
+    }
+
+    .contents {
+        display: none;
+    }
+
+    .topbar {
+        display: block;
+    }
+}
+
+.fixed {
+    position: sticky;
+}

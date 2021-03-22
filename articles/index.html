@@ -1,13 +1,14 @@
 ---
-layout: notes 
+layout: articles
 ---
+
 
 <div style="margin-top: 20px; margin-bottom: 20px" class="ui text container">
   <div class="ui stackable centered three cards">
-      {% assign note_pages = site.pages | where: "type", "note" %}
-      {% for page in note_pages %}
+      {% assign article_pages = site.pages | where: "type", "article" %}
+      {% for page in article_pages %}
         {% unless page.draft %}
-          {% include note-card.html page=page %}
+          {% include article-card.html page=page %}
         {% endunless %}
       {% endfor %}
   </div>

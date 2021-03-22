@@ -1,21 +1,8 @@
-# Site settings
-
-title: Eric Chapdelaine 
-url: "https://eric-chapdeliane.github.io"
+url: ""
 baseurl: ""
 
-bio-page-label: Resume
-
-theme-home: theme-home-bulletin.html
-theme-projects: theme-projects-bulletin.html
-theme-essays: theme-essays-bulletin.html
-theme-bio: theme-bio-bulletin.html
-theme-notes: theme-notes.html
-
-# From css/rouge
-rouge-theme: github
-
-# YOU NORMALLY NEVER CHANGE THE FOLLOWING
 markdown: kramdown
+kramdown:
+    parse_block_html: true
+excerpt_seperator: ""
 include: [_data]
-

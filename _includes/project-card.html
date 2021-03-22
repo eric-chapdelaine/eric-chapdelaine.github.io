@@ -1,17 +1,13 @@
-<a class="card" href="{{ site.baseurl }}{{ include.page.url }}">
-  {% if include.page.image %}
+<a class="card" href="{{ site.baseurl }}{{ include.page.url | split: '.html'[0] }}">
+    {% if include.page.image %}
     <div class="image">
-      <img src="{{ site.baseurl }}/{{ include.page.image }}">
+        <img src="/projects/{{ include.page.image }}">
     </div>
-  {% endif %}
+    {% endif %}
   <div class="content">
-    <span class="header">{{ include.page.title }}</span>
+    <span class="title">{{ include.page.title }}</span>
     <div class="meta">
-      <span class="date">{{ include.page.date }}</span>
-    </div>
-
-    <div class="description">
-      {{ include.page.summary }}
+        <span class="date">{{ include.page.summary }}</span>
     </div>
   </div>
 </a>

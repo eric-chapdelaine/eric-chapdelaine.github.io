@@ -1,0 +1,23 @@
+<div class="sidenav">
+    <a href="/">Eric Chapdelaine</a><br />
+  <meta>{{ site.data.resume.basics.summary }}<meta>
+  <hr />
+  <a {% if include.active == "notes" %} style="font-weight: bold;" {% endif %} href="/notes">Notes</a><br />
+  <a {% if include.active == "projects" %} style="font-weight: bold;" {% endif %} href="/projects">Projects</a><br />
+  <a {% if include.active == "articles" %} style="font-weight: bold;" {% endif %} href="/articles">Articles</a><br />
+  <a {% if include.active == "resume" %} style="font-weight: bold;" {% endif %} href="/resume">Resume</a><br />
+  <hr />
+  <a href="mailto:chapdelaine.e@northeastern.edu">Email</a><br />
+  <a href="http://github.com/eric-chapdelaine">GitHub</a><br />
+  <a href=https://www.linkedin.com/in/eric-chapdelaine-46888011b/">LinkedIn</a><br />
+  <a href="https://www.instagram.com/eric.chapdelaine/">Instagram</a><br />
+</div>
+
+<div hidden class="topbar">
+<div class="ui secondary pointing menu">
+  <a href="/" class="{% if include.active == "home" %}active{% endif %} item">Home</a>
+  <a href="/notes" class="{% if include.active == "notes" %}active{% endif %} item">Notes</a>
+  <a href="/projects" class="{% if include.active == "projects" %}active{% endif %} item">Projects</a>
+  <a href="/articles" class="{% if include.active == "articles" %}active{% endif %} item">Articles</a>
+  <a href="/resume" class="{% if include.active == "resume" %}active{% endif %} item">Resume</a>
+</div></div>

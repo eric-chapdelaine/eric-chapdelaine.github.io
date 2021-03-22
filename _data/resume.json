@@ -1,0 +1,162 @@
+{
+  "basics": {
+    "name": "Eric Chapdelaine",
+    "label": "Student",
+    "picture": "/images/eric.jpeg",
+    "email": "chapdelaine.e@northeastern.edu",
+    "phone": "",
+    "website": "https://www.ericchapdelaine.com/",
+    "summary": "Student at Northeastern University Studying Computer Science.",
+    "profiles": [
+      {
+        "network": "github",
+        "username": "eric-chapdelaine",
+        "url": "http://github.com/eric-chapdelaine"
+      },
+      {
+        "network": "LinkedIn",
+        "username": "Eric Chapdelaine",
+        "url": "https://www.linkedin.com/in/eric-chapdelaine-46888011b/"
+      },
+      {
+        "network": "instagram",
+        "username": "eric.chapdelaine",
+        "url": "https://www.instagram.com/eric.chapdelaine/"
+      }
+    ]
+  },
+  "interests": [
+    {
+      "name": "Operating systems",
+      "keywords": [
+        "Linux",
+        "macOS"
+      ]
+    },
+    {
+      "name": "command line",
+      "keywords": [
+          "Bash",
+          "Zsh"
+      ]
+    },
+    {
+      "name": "text editors and typesetting",
+      "keywords": [
+          "LaTeX",
+          "Vim"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "name": "Languages and Frameworks",
+      "level": "",
+      "keywords": [
+        "Python",
+        "Bash",
+        "Flask",
+        "Java"
+      ]
+    },
+    {
+      "name": "Toolsets/OS",
+      "level": "",
+      "keywords": [
+        "MacOS",
+        "Ubuntu",
+        "LaTeX",
+        "Git/GitHub"
+      ]
+    }
+  ],
+  "volunteer":[
+      {
+      "position": "Student Tutor",
+      "organization": "West High School",
+      "summary": "Tutored students at West High School on a variety of subjects.",
+      "startDate": "2019-12-01",
+      "endDate": "2020-5-01"
+      }
+  ],
+  "education": [
+    {
+      "institution": "The Derryfield School, Manchester, NH",
+      "area": "High School",
+      "studyType": "Degree",
+      "startDate": "2016-09-01",
+      "endDate": "2020-08-1",
+      "gpa": "",
+      "courses": [
+      ]
+    },
+    {
+      "institution": "Northeastern University, Boston, MA",
+      "area": "Computer Science (expected Spring, 2024)",
+      "studyType": "B.S.",
+      "startDate": "2020-09-01",
+      "endDate": "Present",
+      "gpa": "",
+      "courses": [
+      ]
+    }
+  ],
+  "work": [
+    {
+      "company": "SC-TI",
+      "position": "Co-founder",
+      "website": "",
+      "startDate": "2016-09-01",
+      "endDate": "2018-8-01",
+      "summary": "Designed and sold computer hardware for those inexperienced with personal computing. I also obtained knowledge with business and sales.",
+      "highlights": [
+      ]
+    },
+    {
+      "company": "New Hampshire Radiology Society",
+      "position": "Webmaster",
+      "website": "https://www.nhrad.org/",
+      "startDate": "2019-10-01",
+      "endDate": "2020-12-01",
+      "summary": "Created and maintained the website for the New Hampshire Radiology Society.",
+      "highlights": [
+      ]
+    },
+    {
+      "company": "Future Genius",
+      "position": "Camp Counselor",
+      "website": "https://www.futuregenius.org/",
+      "startDate": "2019-7-01",
+      "endDate": "2020-7-01",
+      "summary": "Worked with passionate students during camp, helping introduce computer science concepts to them. We did this by having them create a video game and work with other students.",
+      "highlights": [
+      ]
+    }
+  ],
+  "awards": [
+    {
+      "title": "Highest Honors",
+      "date": "2016-2020",
+      "awarder": "The Derryfield School",
+      "summary": ""
+    },
+    {
+      "title": "NHIAA Scholar Athlete Award",
+      "date": "2020",
+      "awarder": "NHIAA",
+      "summary": ""
+    },
+    {
+      "title": "Class of '70 Award",
+      "date": "2020",
+      "awarder": "The Derryfield School",
+      "summary": "Awarded to one coach-chosen player in every sport. I received it in Track & Field."
+    }
+  ],
+  "references": [
+    {
+      "name": "Available upon request",
+      "reference": ""
+    }
+  ]
+}

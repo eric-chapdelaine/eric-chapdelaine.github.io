@@ -1,0 +1,2513 @@
+I"��<h1 id="module-2---statement-representation">Module 2 - Statement Representation</h1>
+
+<h2 id="circuits-and-logic">Circuits and Logic</h2>
+
+<ul>
+  <li>OR</li>
+  <li>ADD</li>
+  <li>XOR</li>
+  <li>XNOR</li>
+  <li>NAND</li>
+</ul>
+
+<h3 id="half-adder-circuit">Half Adder Circuit</h3>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Half_Adder.svg/220px-Half_Adder.svg.png" alt="Half Adder Circuit" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">S</code> Is the sum and <code class="language-plaintext highlighter-rouge">c</code> is the carry. Uses xnor for the sum because 0 xnor 0 = 0, 1 xnor 0 = 1, and 1 xnor 1 = 0 (where the carry is).</p>
+
+<h3 id="ripple-adder">Ripple Adder</h3>
+
+<p>What if you want a third input? You have to expand the Half Adder</p>
+
+<p><img src="https://jjmk.dk/MMMI/Lessons/06_Arithmetics/No1_Adders/Ripple/Index.7.jpg" alt="RippleAdder" /></p>
+
+<h2 id="boolean-algebra">Boolean Algebra</h2>
+
+<p><img src="./cs1800/truth.png" alt="Boolean Laws" /></p>
+
+<div style="width: 100%" class="ui rounded images">
+  <img class="ui image" src="./cs1800/logic-1.png" />
+</div>
+
+<p>Boolean Equivalence</p>
+
+<p>$(A \wedge \neg B) \vee (A \vee B) \equiv A$</p>
+
+<p>Distributive Law: $((A \wedge \neg B) \vee A) \wedge ((A \wedge \neg B) \vee B)$</p>
+
+<p>Commutative Law:  $(A \vee (A \wedge \neg B)) \wedge ((A \vee B) \wedge (B \vee \neg B))$</p>
+
+<p>Absorption Law and Known Always True:  $A \wedge (A \vee B)$</p>
+
+<p>Absorption: $A$</p>
+
+<h2 id="implications-inverses-and-contrapositives">Implications, Inverses and Contrapositives</h2>
+
+<h3 id="conditionalsimplications">Conditionals/Implications</h3>
+
+<ul>
+  <li>If <code class="language-plaintext highlighter-rouge">p</code> then <code class="language-plaintext highlighter-rouge">q</code></li>
+</ul>
+
+<p>Example:</p>
+
+<p><code class="language-plaintext highlighter-rouge">p</code>: Ben left the house after 8am</p>
+
+<p><code class="language-plaintext highlighter-rouge">q</code>: Ben arrived at work after 9am</p>
+
+<p>If Ben left after 8am, then Ben arrived after 9pm</p>
+
+<p>$p \to q$ (we use double arrow notation $\implies$)</p>
+
+<p>“If p then q”</p>
+
+<div style="width: 100%" class="ui rounded images">
+  <img class="ui image" src="./cs1800/table-1.png" />
+</div>
+
+<p>What if we flipped the truth table?</p>
+
+<div style="width: 100%" class="ui rounded images">
+  <img class="ui image" src="./cs1800/table-1 1.png" />
+</div>
+
+<p>This proves that</p>
+
+\[\neg (p \to q) \equiv p \wedge \neg q\]
+
+\[p \implies q \equiv \neg(p \land \neg q) \equiv \neg p \lor q\]
+
+<h3 id="contrapositives">Contrapositives</h3>
+
+<p>$p \to q \equiv \neg q \to \neg p$</p>
+
+<p>If Ben arrived before 9, he must’ve left before 8</p>
+
+<div style="width: 100%" class="ui rounded images">
+  <img class="ui image" src="./cs1800/table-1 2.png" />
+</div>
+
+<h3 id="converse-of-p-to-q-is-q-to-p">Converse of $p \to q$ is $q \to p$</h3>
+
+<div style="width: 100%" class="ui rounded images">
+  <img class="ui image" src="./cs1800/table-1 3.png" />
+</div>
+
+<p>If Ben arrives after 9, then Ben left after 8</p>
+
+<h3 id="inverse-neg-p-to-neg-q">Inverse $\neg p \to \neg q$</h3>
+
+<p>(Contrapositive of the Converse)</p>
+
+<h2 id="existential-qualifiers">Existential Qualifiers</h2>
+
+<p>Quantities</p>
+
+<ul>
+  <li>None</li>
+  <li>Some</li>
+  <li>All</li>
+</ul>
+
+<p>It rained every first day of the month last string (March, April, May)</p>
+
+<p>On every first day of the month, it rained</p>
+
+<p>On every <code class="language-plaintext highlighter-rouge">x</code>, it rained</p>
+
+<p>$p(x)$= it rained on $x$ →on every $x$, $p(x)$</p>
+
+<p><strong>for all</strong> first days of the month, it rained</p>
+
+<ul>
+  <li>For all $x$, it rained</li>
+  <li><strong>for all</strong>, $x$, $p(x)$</li>
+</ul>
+
+<p>Denotated as:</p>
+
+\[\forall x, p(x)\]
+
+<p>$x$ is the first day of the month</p>
+
+<p>$x \in$ first days of the month</p>
+
+<p>$\forall$ - Universial Quantifiers</p>
+
+<ul>
+  <li>On every</li>
+  <li>For all</li>
+  <li>For every</li>
+  <li>For each</li>
+  <li>All of</li>
+</ul>
+
+<p>Example</p>
+
+<p>$Q(x)$ : $x$ has green leaves, $x$ is a tree</p>
+
+<p>$\forall x, Q(x)$ : Every tree has green leaves</p>
+
+<ul>
+  <li>NOT True</li>
+</ul>
+
+<p>Some trees have red leaves → There is a tree with red leaves (only have to prove one)</p>
+
+<p>$R(x)$ : $x$ has red leaves</p>
+
+\[\exists x, R(x)\]
+
+<p><strong>There exists</strong> a tree with red leaves</p>
+
+<p>Example:</p>
+
+<p>$\forall x, R(x)$ - All trees have red leaves</p>
+
+<p>Negate: Exhibit a tree with leaves that aren’t real. Some trees don’t have red leaves</p>
+
+<p>Therefore:</p>
+
+<p>$\forall x, R(x)$</p>
+
+<p>Negate: $\exists x, \neg R(x)$</p>
+
+<p>Example:
+There are some trees that have purple leaves.</p>
+
+<p>Every tree doesn’t have purple leaves</p>
+
+<p>$\exists x, purple(x)$</p>
+
+<p>Negate: $\forall x, \neg purple(x)$</p>
+
+<p>Summary:</p>
+
+<p>$\neg \forall x, p(x) \equiv \exists x, \neg p(x)$</p>
+
+<p>$\neg \exists x, R(x) \to \forall x, \neg R(x)$</p>
+
+<p>None: $\forall x \neg p(x)$</p>
+
+<p>All : $\forall$</p>
+
+<p>Some: $\exists$</p>
+<h1 id="module-3---collection-representation">Module 3 - Collection Representation</h1>
+
+<h2 id="lesson-1---set-representation">Lesson 1 - Set Representation</h2>
+
+<p>Set of locations that Northeastern has a campus in (each one of them is called an element):</p>
+
+<ul>
+  <li>London</li>
+  <li>Portland</li>
+  <li>…</li>
+  <li>Boston</li>
+</ul>
+
+<p>NOTE: Sets cannot have duplicates</p>
+
+<h3 id="notation">Notation</h3>
+
+<p>NU_CAMPUS = {London, Portland, …, Boston}</p>
+
+<p>$<strong>\in$ - an element of</strong></p>
+
+<p>Ex. London $\in$ NU_CAMPUS</p>
+
+<h3 id="infinite-sets">Infinite Sets</h3>
+
+<p>In order to represent infinite sets (ex. multiples of 5), we need to use <strong>set builder</strong> notation</p>
+
+<p>Multiple of 5:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>{ x</td>
+      <td>x = 5 * n, n ≤ 1}</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>This example isn’t too clear because the <code class="language-plaintext highlighter-rouge">n</code>can be any number like 1.3, not just natrual numbers.</p>
+
+<h3 id="numbers">Numbers</h3>
+
+<ul>
+  <li>Natrual - $\N$</li>
+  <li>Integers -  $\Z$</li>
+  <li>Rationals - $\mathbb{Q}$</li>
+  <li>Real - $\R$</li>
+</ul>
+
+<p>Therefore the multiple of 5 example should look like this:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>{ x</td>
+      <td>x = 5 * n, n $\in \N$} or { 5n</td>
+      <td>n $\in \N$}</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The first one is perferred because it represents computer programming languages</p>
+
+<h3 id="general-notation">General Notation</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td>{ x</td>
+      <td>the rules governing membership}</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="lesson-2-subsets-the-empty-set-and-the-power-set">Lesson 2: Subsets, The Empty Set and The Power Set</h2>
+
+<p>Recall:</p>
+
+<p>NU_CAMPUS = {London, Portland, …, Boston}</p>
+
+<hr />
+
+<p>NU_US_CAMPUSES = {Boston, Seattle, …}</p>
+
+<p><strong>Subsets</strong> - $\subseteq$</p>
+
+<p>NU_US_CAMPUSES $\subseteq$ NU_CAMPUS</p>
+
+<p>Another example:
+Fives  = { x | x = 5 * n, n $\in \N$}</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Tens = { x</td>
+      <td>x = 10 * n, n $\in \N$}</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Tens $\subseteq$ Fives</p>
+
+<h3 id="general-notation-1">General Notation</h3>
+
+<p><strong>If and only if</strong> - $\iff$</p>
+
+<p>Ex:</p>
+
+<p>A $\subseteq$ B $\iff$ $\forall$ x $\in$ A, x $\in$ B</p>
+
+<p>If not in a subset:</p>
+
+<p>A $\nsubseteq$ B $\iff$$\exists$ x $\in$ A, x $\notin$ B</p>
+
+<p><strong>Proper Subset</strong>  - $\subset$</p>
+
+<p>C $\subset$ D $\iff$$\forall$ x $\in$ C, x $\in$ D and $\exists$ y $\in$ D, y $\in$ C</p>
+
+<p>E $\subseteq$ F and F $\subseteq$ E $\iff$E $\equiv$ F (very helpful for proofs)</p>
+
+<h3 id="the-empty-set">The Empty Set</h3>
+
+<ul>
+  <li>Represented with {} or $\emptyset$</li>
+  <li>Is a subset of every other set</li>
+</ul>
+
+<h3 id="the-power-set">The Power Set</h3>
+
+<ul>
+  <li>The power set is a set of all possible subsets of any given set</li>
+</ul>
+
+<p>Example:</p>
+
+<p>IC = {chocolate, strawberry, vanilla}</p>
+
+<p>$\wp (IC)$ = { {}, {chocolate, strawberry, vanilla}, {chocolate}, {strawberry}, {vanilla}, {chocolate, strawberry}, …}</p>
+
+<p><strong>Every set is a subset of itself</strong></p>
+
+<p>How many elements are in $\wp (IC)$?</p>
+
+<ul>
+  <li>IC - 3 elements</li>
+  <li>$\wp (IC)$ - 8 elements</li>
+</ul>
+
+<p>Notice that $8 = 2^{3}$</p>
+
+<p>We can make this into a general form:</p>
+
+<ul>
+  <li>A - n elements</li>
+  <li>$\wp (A)$ - $2^{n}$ elements</li>
+</ul>
+
+<h2 id="lesson-3-operations-on-sets">Lesson 3: Operations on Sets</h2>
+
+<ul>
+  <li>Complement of a set</li>
+  <li>Union</li>
+  <li>Intersection</li>
+  <li>Difference</li>
+  <li>Cartesian Product</li>
+</ul>
+
+<p>Favorite Green Vegetables (FGV) - there is an implied context. It is Ben’s favorite things in the <strong>universe</strong> green vegetables</p>
+
+<p>Universe  - $\mho$</p>
+
+<p>FGV = {cucumber, peas, lettuce, broccoli}</p>
+
+<p><strong>Venn Diagram Representations of Sets</strong></p>
+
+<div style="width: 100%" class="ui rounded images">
+  <img class="ui image" src="./cs1800/venn_dia.png" />
+</div>
+
+<h3 id="complement">Complement</h3>
+
+<p>Complement of FGV</p>
+
+<ul>
+  <li>All green vegetables not in that set</li>
+</ul>
+
+<div style="width: 100%" class="ui rounded images">
+  <img class="ui image" src="./cs1800/comple.png" />
+</div>
+
+<p>The complement of a set A, is written $\bar{A}$</p>
+
+<p>$\bar{A}$ is the set of all elements in a universe that aren’t in A</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Formation Definition: $\bar{A} = {x</td>
+      <td>x \notin A, x \in \mho}$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>NOTE: The $x \in \mho$ is optional and most often left out</p>
+
+<hr />
+
+<p>FGV = {cucumber, peas, lettuce, broccoli}</p>
+
+<p>MGV = {cucumber, lettuce, asparagus}</p>
+
+<h3 id="union">Union</h3>
+
+<p>Addition of sets</p>
+
+<p>FGV $\cup$ MGV = {cucumber, lettuce, asparagus}</p>
+
+<p>$A \cup B = B \cup A$</p>
+
+<div style="width: 100%" class="ui rounded images">
+  <img class="ui image" src="./cs1800/union.png" />
+</div>
+
+<p>The union of a set A with a set B written, $A \cup B$, is th set of all elements in A and all elements in B</p>
+
+<p>Formal Definition:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$A \cup B = {x</td>
+      <td>x\in A \vee x \in B}$</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="intersection">Intersection</h3>
+
+<p>All of the elements in common</p>
+
+<p>$FGV \cap MGV = {cucumber, lettuce}$</p>
+
+<p>$A \cap B = B \cap A$</p>
+
+<div style="width: 100%" class="ui rounded images">
+  <img class="ui image" src="./cs1800/intersect.png" />
+</div>
+
+<p>The intersection of a set A with a set B is the set of all elements that are in both A and B</p>
+
+<p>Formal Definition:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$A \cap B = {x</td>
+      <td>x \in A \wedge x \in B }$</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<p>Unions and intersections of more than two sets:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$A \cup B \cup C = {x</td>
+      <td>x \in A \vee x \in B \vee x \in C }$</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$A \cap B \cap C = {x</td>
+      <td>x \in A \wedge x \in B \wedge x \in C }$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Formal Explanation:</p>
+
+<p>$\bigcup\limits_{i=1}^{n} A_{i} = A_{1} \cup A_{2} \cup A_{3} … \cup A_{n}$</p>
+
+<p>$\bigcap\limits_{i=1}^{n} A_{i} = A_{1} \cap A <em>{2} \cap A</em>{3} … \cap A_{n}$</p>
+
+<h3 id="difference">Difference</h3>
+
+<p>What’s in one set and not the other</p>
+
+<ul>
+  <li>Ordered operation! $\therefore A - B \neq B - A$</li>
+</ul>
+
+<p>Recall:</p>
+
+<p>FGV = {cucumber, peas, lettuce, broccoli}</p>
+
+<p>MGV = {cucumber, lettuce, asparagus}</p>
+
+<p>$FGV - MGV = { peas,brocolli}$</p>
+
+<p>Sometimes it’s written $FGV / MGV$</p>
+
+<div style="width: 100%" class="ui rounded images">
+  <img class="ui image" src="./cs1800/difference.png" />
+</div>
+
+<p>The difference between set A and B, written $A-B$, is the set of all elements in A that not in B</p>
+
+<p>Formal Definition:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$A - B = {x</td>
+      <td>x\in A \wedge x \notin B }$</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="cartesian-product">Cartesian Product</h3>
+
+<p>All possible pairs</p>
+
+<p>Recall the Cartesian plane which represents all possible pairs of x and y positions</p>
+
+<p>$GV = {cucumber, peas}$</p>
+
+<p>$berry  = {blue, straw, black }$</p>
+
+<p>$GV \times berry = {(cucumber, blue), (cucumber, straw), (cucumber, black), (peas, blue), (peas, straw), (peas, black)}$</p>
+
+<p>Parenthesis mean pair</p>
+
+<p>Definition:</p>
+
+<p>The Cartesian product of set A with set B, written $A \times B$, is the set of all possible pairs from A with the elements in B.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$A \times B = {(x,y)</td>
+      <td>x \in A \wedge y \in B}$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>This is useful for pairing things in databases</p>
+
+<h3 id="symmetric-difference">Symmetric Difference</h3>
+
+<p>Everything but the intersection</p>
+
+<p>$A \vartriangle B = (A - B) \cup (B -A)$</p>
+
+<h2 id="lesson-5---binary-strings">Lesson 5 - Binary Strings</h2>
+
+<p>Consider the universe:</p>
+
+<p>$u = [vegtables, fruits, grains, protein, dairy]$</p>
+
+<p>Length 5</p>
+
+<p>If we have the set:</p>
+
+<p>$s = {vegtables, protein}$</p>
+
+<p>This set corresponds to the 1st and 4th elements in the given universe so we can denote it as:</p>
+
+<p>$10010$</p>
+
+<p>It’s 5 bits because the universe is length 5. Notice how only the 1st and 4th digit (from the left) is 1.</p>
+
+<h2 id="lesson-6---writing-proofs">Lesson 6 - Writing Proofs</h2>
+
+<p><strong>Proof</strong> - A mathematical reason that something is true</p>
+
+<ul>
+  <li>Arguing something</li>
+</ul>
+
+<p>Prove that $A - B \equiv A \cap \bar{B}$</p>
+
+<h3 id="belief-phase">Belief Phase</h3>
+
+<ul>
+  <li>Use the Venn diagrams to <strong>convince yourself</strong> that the statement is true</li>
+</ul>
+
+<p>Explain the statements to their formal definitions:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$A - B = {x</td>
+      <td>x \in A \wedge x \notin B }$</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$A \cap \bar{B} = {y</td>
+      <td>y \in A \wedge y \in \bar{B}}$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>They already look very similar</p>
+
+<h3 id="prove-idea">Prove Idea</h3>
+
+<p>A rough skeleton of the formal proof. This is called a direct proof.</p>
+
+<ul>
+  <li>How do we show set equivalence?</li>
+</ul>
+
+<p>Set Equivalence Laws</p>
+
+<div style="width: 100%" class="ui rounded images">
+  <img class="ui image" src="./cs1800/set_equiv_laws.png" />
+</div>
+
+<p>In order to prove this, we need to first prove this:</p>
+
+<p>$A - B \subseteq A \cap \bar{B}$ and</p>
+
+<p>$A \cap \bar{B} \subseteq A - B$</p>
+
+<p>$x \in A - B \implies x \in A \wedge x \notin B \implies x \in A \wedge x \in \bar{B}$</p>
+
+<p>$x \in A \cap \bar{B} \implies x \in A \wedge x \in \bar{B} \implies x \in A \wedge x \notin B$</p>
+
+<h3 id="the-actual-proof">The Actual Proof</h3>
+
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>THM: A - B <span class="k">\equiv</span> A <span class="k">\cap</span> <span class="k">\bar</span><span class="p">{</span>B<span class="p">}</span>
+Proof:
+To show that the set A - B is equivalent to the set A <span class="k">\cap</span> <span class="k">\bar</span><span class="p">{</span>B<span class="p">}</span> we will
+show that A - B <span class="k">\subseteq</span> A <span class="k">\cap</span> <span class="k">\bar</span><span class="p">{</span>B<span class="p">}</span> and A <span class="k">\cap</span> <span class="k">\bar</span><span class="p">{</span>B<span class="p">}</span> <span class="k">\subseteq</span> A - B.
+First we will show A - B <span class="k">\subseteq</span> A <span class="k">\cap</span> <span class="k">\bar</span><span class="p">{</span>B<span class="p">}</span>. Consider the definition
+of A - B, A - B = <span class="k">\{</span>x|x <span class="k">\in</span> A <span class="k">\wedge</span> x <span class="k">\notin</span> B <span class="k">\}</span> since x <span class="k">\in</span> A <span class="k">\wedge</span> x <span class="k">\notin</span>
+B, we know htat x <span class="k">\in</span> A <span class="k">\wedge</span> x <span class="k">\in</span> <span class="k">\bar</span><span class="p">{</span>B<span class="p">}</span> by the definition of set complement
+so x <span class="k">\in</span> A <span class="k">\cap</span> <span class="k">\bar</span><span class="p">{</span>B<span class="p">}</span>. Now to show A <span class="k">\cap</span> <span class="k">\bar</span><span class="p">{</span>B<span class="p">}</span> <span class="k">\subseteq</span> A - B we again
+consider the definition A <span class="k">\cap</span> <span class="k">\bar</span><span class="p">{</span>B<span class="p">}</span> which is the set of all x, x <span class="k">\in</span> A
+<span class="k">\wedge</span> x <span class="k">\in</span> <span class="k">\cap</span><span class="p">{</span>B<span class="p">}</span> but since x <span class="k">\in</span> <span class="k">\bar</span><span class="p">{</span>B<span class="p">}</span> is the same as x <span class="k">\notin</span> B by
+definition, we know x <span class="k">\in</span> A <span class="k">\wege</span> x <span class="k">\notin</span> B which is the same as x <span class="k">\in</span> A - B.
+So when x <span class="k">\in</span> A <span class="k">\cap</span> <span class="k">\bar</span><span class="p">{</span>B<span class="p">}</span> <span class="k">\implies</span> x <span class="k">\in</span> A - B. So we have A - B <span class="k">\subseteq</span> A
+<span class="k">\wedge</span> <span class="k">\bar</span><span class="p">{</span>B<span class="p">}</span> and A <span class="k">\wedge</span> <span class="k">\bar</span><span class="p">{</span>B<span class="p">}</span> <span class="k">\subseteq</span> A - B so A - B <span class="k">\equiv</span> A <span class="k">\wedge</span>
+<span class="k">\bar</span><span class="p">{</span>B<span class="p">}</span>. <span class="k">\boxtimes</span>
+</code></pre></div></div>
+
+<p>You end formal proofs with either $\boxtimes$ or $Q.E.D$</p>
+
+<h2 id="summary">Summary</h2>
+
+<p>2346</p>
+
+<h3 id="sets">Sets</h3>
+
+<p>Sets are collections of unique objects, meaning there are no duplicates. We can write them either in list notation or set builder notation.</p>
+
+<p>$S = {0,1,2,3}$</p>
+
+<p>$x \in A$: x in an element of A</p>
+
+<p>$A \equiv B$: A is equivalent to B if both sets have the exact same elements</p>
+
+<p>$A \subseteq B$: A is a subset of B if all elements in A are also in B.</p>
+
+<p>$A \subset B$: A is a proper subset of B if A is a subset of B but A is not equivalent to B.</p>
+
+<h3 id="special-sets">Special Sets</h3>
+
+<p>We learned of a number of special sets.</p>
+
+<p>$\empty$ is the empty set, written as ${}$in list notation. Note that for all sets A, $\empty \subseteq A$.</p>
+
+<p>$\mathcal{P}(S)$ is the power set of S, or all subsets of S.</p>
+
+<p>$\mathbb{Z}$ is the set of all integers</p>
+
+<p>$\mathbb{Q}$ is the set of rationals, or all fractions.</p>
+
+<p>$\mathbb{R}$ is the set of reals, which are rationals and all irrational numbers like $\pi$.</p>
+
+<p>$U$ is the universe and contains all objects.</p>
+
+<h3 id="set-operations">Set Operations</h3>
+
+<p>Just like boolean statements, we can create new sets using set operations. We can also visualize these sets with Venn Diagrams.</p>
+
+<div style="width: 100%" class="ui rounded images">
+  <img class="ui image" src="./cs1800/set_operations.png" />
+</div>
+
+<h3 id="proving-equivalence-of-sets">Proving Equivalence of Sets</h3>
+
+<p>We can prove two sets A, B are equivalent using the set equivalence laws or by proving A, B are subsets of each other.</p>
+
+<p>Recall $A \equiv B \iff A \subseteq B \land B \subseteq A$</p>
+
+<p>By definition of AB, we can show ABby showing for all objects x, if xA, then xB. So our proofs look as follows:</p>
+
+<ol>
+  <li>Announce we will prove $A \equiv B$ by showing $A \subseteq B$ and $B \subseteq A$.</li>
+  <li>Show $A \subseteq B$ by showing if $x \in A$, then $x \in B$</li>
+  <li>Then show $B \subseteq A$ by showing if $x \in B$ then $x \in A$.</li>
+  <li>Conclude we have indeed shown $A \equiv B$.
+    <h1 id="module-4---set-cardinality">Module 4 - Set Cardinality</h1>
+  </li>
+</ol>
+
+<h2 id="lesson-1---counting-unions">Lesson 1 - Counting Unions</h2>
+
+<h3 id="counting-sets">Counting Sets</h3>
+
+<p>$nucampus = {London, Portland, Boston}$</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Set cardinality - $</td>
+      <td>nucampus</td>
+      <td>$</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>The number of elements</li>
+</ul>
+
+<p>GV = {cucumber, kale, asparagus, peas}</p>
+
+<p>Berries = {Black, straw, raspberry, blue berry}</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$</td>
+      <td>GV \cup Berries</td>
+      <td>$=</td>
+      <td>{cucumber, kale, asparagus, peas, black, straw, rasp, blue} = 8</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$</td>
+      <td>GV \cup B</td>
+      <td>=</td>
+      <td>GV</td>
+      <td>+</td>
+      <td>B</td>
+      <td>$</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Is this always true? <strong>NO!</strong>
+    <ul>
+      <li>It’s not if you have overlap, because you would count the overlap twice</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Remove duplicates:</p>
+
+<h2 id="inclusionexclusion-principle">Inclusion/Exclusion Principle</h2>
+
+<h3 id="2-sets-general-form">2 Sets General Form:</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$</td>
+      <td>A \cup B</td>
+      <td>=</td>
+      <td>A</td>
+      <td>+</td>
+      <td>B</td>
+      <td>-</td>
+      <td>A \cap B</td>
+      <td>$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>What about for 3 sets?</p>
+
+<ul>
+  <li>You have to once more get rid of the overlap (which could be counted an additional time than with 2 sets)</li>
+</ul>
+
+<h3 id="3-sets-general-form">3 Sets General Form:</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$</td>
+      <td>A \cup B \cup C</td>
+      <td>=</td>
+      <td>A</td>
+      <td>+</td>
+      <td>B</td>
+      <td>+</td>
+      <td>C</td>
+      <td>-</td>
+      <td>A \cap  B</td>
+      <td>-</td>
+      <td>A \cap C</td>
+      <td>-</td>
+      <td>B \cap C</td>
+      <td>+</td>
+      <td>A \cap B \cap C</td>
+      <td>$</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>You need to add the shared elements of all 3 again (you cut it out too many times)</li>
+</ul>
+
+<h3 id="4-sets-general-form">4 Sets General Form:</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$</td>
+      <td>A \cup B \cup C \cup D</td>
+      <td>=</td>
+      <td>A</td>
+      <td>+</td>
+      <td>B</td>
+      <td>+</td>
+      <td>C</td>
+      <td>+</td>
+      <td>D</td>
+      <td>-</td>
+      <td>A \cap B</td>
+      <td>-</td>
+      <td>A \cap C</td>
+      <td>-</td>
+      <td>B \cap D</td>
+      <td>-</td>
+      <td>C \cap D</td>
+      <td>+</td>
+      <td>A \cap B \cap C</td>
+      <td>+</td>
+      <td>A \cap B \cap D</td>
+      <td>+</td>
+      <td>A \cap C \cap D</td>
+      <td>+</td>
+      <td>B \cap C \cap D</td>
+      <td>-</td>
+      <td>A \cap B \cap C \cap D</td>
+      <td>$</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="lesson-2-counting-cartesian-products">Lesson 2: Counting Cartesian Products</h2>
+
+<p>WestCoast = {Vancoover, Seattle, San Fran, Fan Jose}</p>
+
+<p>EastCoast = {Portland, Charlotte, Boston}</p>
+
+<p>LT = {London, Toronto}</p>
+
+<p><strong>Need one person from each region</strong></p>
+
+<p>FwC = {Bethany, Ian, Jodi}</p>
+
+<p>FeC = {Lany, Maria}</p>
+
+<p>FLT = {Nate, Paul, Samantha}</p>
+
+<p><strong>1 Person to join from each region</strong></p>
+
+<h3 id="how-many-different-combinations">How Many Different Combinations?</h3>
+
+<p>FwC x FeC x FLT = {(Bethany, Laney, Nate), (Bethany, Maria, Nate)…}</p>
+
+<p><strong>Let’s visualize this in a tree:</strong></p>
+
+<div style="width: 100%" class="ui rounded images">
+  <img class="ui image" src="./cs1800/tree-vis.png" />
+</div>
+
+<p><strong>How Many Possible 4 Digit Pin Numbers Are There?</strong></p>
+
+<p>Because we multiply how choices we have by the amount of the times we have to make a choice, we get</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Digits = {0,1,2,3,4,5,6,7,8,9} $\therefore$</td>
+      <td>Digits</td>
+      <td>= 10</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>10 * 10 * 10 * 10</p>
+
+<h2 id="lesson-3-pigeonhole-principle">Lesson 3: Pigeonhole Principle</h2>
+
+<p><strong>Example 1:</strong></p>
+
+<p>7 Teams that are going to have students assigned to</p>
+
+<p>8 Students in the class</p>
+
+<p>What can I say happens when I assign students to a team?</p>
+
+<p>No matter what, one team has at least 2 students</p>
+
+<p><strong>Example 2:</strong></p>
+
+<p>7 Teams</p>
+
+<p>22 Students</p>
+
+<p>No matter the placement/assignment, if all students are on some team then there is 1 team that has at least 4 students</p>
+
+<p><strong>Example 3:</strong></p>
+
+<p>25 Professors</p>
+
+<p>6 TAs</p>
+
+<p>Rule:</p>
+
+<ul>
+  <li>Every professor has exactly 1 TA</li>
+</ul>
+
+<p>What can I say about the number of professors per TA?</p>
+
+<p>Then 1 TA is assigned to 5 professors</p>
+
+<h3 id="pigeon-hole-principle---general-definition">Pigeon Hole Principle - General Definition</h3>
+
+<p>If you have k+1 objects in k bins, at least one bin has more than 1 object</p>
+
+<h3 id="general-formula">General Formula</h3>
+
+<p>If you have n objects to pack into k bins, then at least one bin has at least $\lceil \frac{n}{k} \rceil$ objects</p>
+
+<ul>
+  <li>$\lceil n \rceil$ is a ceiling which means that you round up</li>
+  <li>$\lfloor n \rfloor$ is a floor which means that you round down</li>
+</ul>
+
+<p>Example:</p>
+
+<p>25 professors</p>
+
+<p>6 TAs</p>
+
+<p>Every professor has exactly 1 TA</p>
+
+<p>One TA with $\frac{25}{6} = 4 \frac{1}{6}$</p>
+
+<p>$\therefore$ one TA has at least 5 professors if every professor has 1 TA</p>
+
+<p><strong>Example 2:</strong></p>
+
+<p>25 professors</p>
+
+<p>6 TA’s</p>
+
+<p>Rules:</p>
+
+<ul>
+  <li>Every professor has a TA</li>
+  <li>No TA has more than 5 professors</li>
+</ul>
+
+<p><strong>At least 3 TA’s are assigned to 4 or more professors</strong></p>
+
+<p>WHY?</p>
+
+<p><strong>If</strong> we have 25 professors that need to be assigned to 6 TAs and every professor must be assigned to TA AND no TA is assigned to more than 5 professors <strong>then</strong> at least 3 TA’s are assigned to 4 or more professors.</p>
+
+<p>A - 25 professors are assigned 6 TA’s and each professor has 1 TA and no TA has more than 5 professors</p>
+
+<p>B - At least 3 TA’s are assigned to 4 or more professors</p>
+
+<p>$A \implies B$</p>
+
+<p>Negation : $A \land \neg B$</p>
+
+<h3 id="proof-by-contradiction">Proof By Contradiction</h3>
+
+<p>Proof by contradiction. Assume not, we have 25 professors assigned to 6 TAs such that every professor is assigned to exactly one TA and no TA has more than 5 professors. We also have by our assumption that fewer than 3 TA’s have 4 or more professors. Then we have at most 2 TAs with 4 or more professors. Consider the case when 2 are assigned 4 and all others are smaller. Then we have 17 professors to assign to 4 TA’s. By the pigeonhole principle we know at least 1 has $\lceil \frac{17}{4}\rceil = \lceil4.25 \rceil = 5$ leaving at least 3 with more than 4. Causing a contradiction $\Rightarrow \Leftarrow$</p>
+<h1 id="module-5---combinatorics-and-permutations">Module 5 - Combinatorics and Permutations</h1>
+
+<h2 id="summary-1">Summary</h2>
+
+<p><a href="https://docs.google.com/document/d/1huIYXFnGLoI6mS9KOSMYM5bGqQ2l68jyih6JwpORspw/edit">CS1802 - Counting Handout</a></p>
+
+<div style="width: 100%" class="ui rounded images">
+  <img class="ui image" src="./cs1800/5-logic.png" />
+</div>
+
+<h2 id="recitation-notes">Recitation Notes</h2>
+
+<div style="width: 100%" class="ui rounded images">
+  <img class="ui image" src="./cs1800/5-rec-notes.png" />
+</div>
+
+<h2 id="lesson-1-permutations-order-matters-and-no-repetitions">Lesson 1: Permutations (order matters and no repetitions)</h2>
+
+<p>How many ways can we order n objects?</p>
+
+<p>A = {a,b,c}</p>
+
+<p>Ex.</p>
+
+<ul>
+  <li>abc</li>
+  <li>acb</li>
+  <li>bac</li>
+  <li>bca</li>
+  <li>cba</li>
+  <li>cab</li>
+</ul>
+
+<p><strong>6 Ways!</strong></p>
+
+<div style="width: 100%" class="ui rounded images">
+  <img class="ui image" src="./cs1800/perm.png" />
+</div>
+
+<h3 id="general-formula-1">General Formula</h3>
+
+<p>3 elements - 3<em>2</em>1</p>
+
+<p>4 elements - 4<em>3</em>2*1</p>
+
+<p>$\therefore n!$</p>
+
+<p>Sidenote: $\sum$ for multiplication is $\prod$ therefore  $n! =\prod_{i=n}^{1} i$</p>
+
+<h3 id="example">Example</h3>
+
+<p>How can we choose k elements from a set of n when order matters?</p>
+
+<p>D = {0,1,2,3,4,5,6,7,8,9}</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>D</td>
+      <td>= 10</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Pick 4 elements</strong></p>
+
+<ul>
+  <li>Order matters</li>
+  <li>No repetition</li>
+</ul>
+
+<p>1st choice : 10 possibilities</p>
+
+<p>2nd choice : 9 possibilities</p>
+
+<p>3rd choice : 8 possibilities</p>
+
+<p>4 choice : 7 possibilities</p>
+
+<p>10<em>9</em>8*7</p>
+
+<p>Remember: We stopped at k, so it’s no entire factorial. We need to cut off the rest of it</p>
+
+<p>$\frac{n!}{(n-k)!}$ or $p(n,k)$</p>
+
+<h2 id="lesson-2-combinations-order-doesnt-matter-and-no-repetition">Lesson 2: Combinations (Order doesn’t matter and no repetition)</h2>
+
+<p>No repetitions</p>
+
+<ul>
+  <li>The default with sets! Assume this!</li>
+</ul>
+
+<p>ex. Choose 2 elements from a set of 4</p>
+
+<p>A = {a,b,c,d}</p>
+
+<p>Recall: order matters would be $\frac{4!}{(4-2)!} = 12$</p>
+
+<p>However $ab=ba$. In this example, that would mean that we cut the options in half</p>
+
+<p>Written as ${4}\choose{2}$ or $c(4,2)$</p>
+
+<ul>
+  <li>Pronounced “4 choose 2”</li>
+</ul>
+
+<h3 id="general-definition">General Definition:</h3>
+
+<p>${n}\choose{k}$$= \frac{n!}{(n-k)!k!}$</p>
+
+<p>k! is added because we overshot by how many times we can order k elements</p>
+
+<h3 id="examples">Examples</h3>
+
+<p>Let’s consider we have 9 people, we want to know the number of possible teams we can make of size 5.</p>
+
+<p>${9}\choose{5}$$= \frac{9!}{(9-5)!5!}$</p>
+
+<p><strong>Variant:</strong></p>
+
+<p>9 people, teams of size 5. But 2 people, Logan and Andrew must together if picked.</p>
+
+<p>Two cases</p>
+
+<ul>
+  <li>Logan and Andrew are picked
+    <ul>
+      <li>${7 \choose 3}$</li>
+    </ul>
+  </li>
+  <li>No Logan + No Andrew
+    <ul>
+      <li>${7 \choose 5}$</li>
+    </ul>
+  </li>
+</ul>
+
+<p>${7 \choose 3} + {7 \choose 5} =$</p>
+
+<p><strong>Variant:</strong></p>
+
+<p>9 people, need team of 5, but Ben can’t work with Nate.</p>
+
+<p>3 Cases</p>
+
+<ul>
+  <li>Ben is on + Nate is out
+    <ul>
+      <li>${7 \choose 4}$</li>
+    </ul>
+  </li>
+  <li>Nate is on + Ben is out
+    <ul>
+      <li>${7 \choose 4}$</li>
+    </ul>
+  </li>
+  <li>Ben is out + Nate is out
+    <ul>
+      <li>${7 \choose 5}$</li>
+    </ul>
+  </li>
+</ul>
+
+<p>${7 \choose 4} + {7 \choose 4} + {7 \choose 5} =$</p>
+
+<p><strong>Logical Evaluation:</strong></p>
+
+<p>$\neg Ben \lor \neg Nate$</p>
+
+<p>Negate: $Ben \land Nate$</p>
+
+<p><strong>Things that can’t happen:</strong></p>
+
+<ul>
+  <li>Both Ben and Nate are on
+    <ul>
+      <li>${7 \choose 3}$</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="difference-method">Difference Method</h3>
+
+<p>${9 \choose 5} - {7 \choose 3} = 91$</p>
+
+<h3 id="teams-with-types">Teams with Types</h3>
+
+<p>12 People</p>
+
+<ul>
+  <li>5 Faculty</li>
+  <li>7 Students</li>
+</ul>
+
+<p>Teams of size 5</p>
+
+<p>How many teams have 3 faculty members and 2 students?</p>
+
+<p>${5 \choose 3} \cdot {7 \choose 2} = 210$</p>
+
+<p>How many teams of size 5 contain at most 1 faculty?</p>
+
+<p>2 Cases</p>
+
+<ul>
+  <li>0 faculty + 5 students
+    <ul>
+      <li>${7 \choose 5} \cdot {5 \choose 0}$</li>
+    </ul>
+  </li>
+  <li>1 faculty + 4 students
+    <ul>
+      <li>${7 \choose 4} \cdot {5 \choose 1}$</li>
+    </ul>
+  </li>
+</ul>
+
+<p>${7 \choose 5} \cdot {5 \choose 0} + {7 \choose 4} \cdot {5 \choose 1}$</p>
+
+<p>How many teams have at least 1 faculty members?</p>
+
+<p>5 cases</p>
+
+<ul>
+  <li>1 fac + 4 students
+    <ul>
+      <li>${5 \choose 1} \cdot {7 \choose 4}$</li>
+    </ul>
+  </li>
+  <li>2 fac + 3 students
+    <ul>
+      <li>${5 \choose 2} \cdot {7 \choose 3}$</li>
+    </ul>
+  </li>
+  <li>3 fac + 2 students
+    <ul>
+      <li>${5 \choose 3} \cdot {7 \choose 2}$</li>
+    </ul>
+  </li>
+  <li>4 fac + 1 student
+    <ul>
+      <li>${5 \choose 4} \cdot {7 \choose 1}$</li>
+    </ul>
+  </li>
+  <li>5 fac + 0 students
+    <ul>
+      <li>${5 \choose 5} \cdot {7 \choose 0}$</li>
+    </ul>
+  </li>
+</ul>
+
+<p>${5 \choose 1} \cdot {7 \choose 4} + {5 \choose 2} \cdot {7 \choose 3} + {5 \choose 3} \cdot {7 \choose 2} + {5 \choose 4} \cdot {7 \choose 1} + {5 \choose 5} \cdot {7 \choose 0}$</p>
+
+<h2 id="lesson-3-counting-with-repetitions-when-order-matters">Lesson 3: Counting with Repetitions when Order Matters</h2>
+
+<p>ex. 4 Digit pin</p>
+
+<p>Digits = {0,1,2,3,4,5,6,7,8,9}</p>
+
+<p>1st choice - 10 options</p>
+
+<p>2st choice - 10 options</p>
+
+<p>3st choice - 10 options</p>
+
+<p>4st choice - 10 options</p>
+
+<p>10<em>10</em>10*10</p>
+
+<p>$n^k$</p>
+
+<h2 id="lesson-4-balls-and-bins-counting-with-repetitions-when-order-doesnt-matter">Lesson 4: Balls and Bins: Counting With Repetitions When Order Doesn’t Matter</h2>
+
+<p>ex. Ordering pizza</p>
+
+<p>4 pizza choices</p>
+
+<ul>
+  <li>Cheese</li>
+  <li>Pepperoni</li>
+  <li>Veggie</li>
+  <li>Meat Lovers</li>
+</ul>
+
+<p>How many ways from this set can I get 3 pizzas?</p>
+
+<ul>
+  <li>Create ‘bins’ with dividers</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>ex P</td>
+          <td>C</td>
+          <td>M</td>
+          <td>V (‘1’ denotes a divider)</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>If you have a ‘ball’ in a bin, denote it with a 0 and the dividers are 1’s
+    <ul>
+      <li>ex. 2 pepperonis, 1 cheese = 001011 (looks like binary)</li>
+    </ul>
+
+    <hr />
+  </li>
+  <li>With 4 categories, you need 3 bars (which means 3 1’s)</li>
+  <li>3 pizzas to pick (which means 3 0’s)</li>
+</ul>
+
+<p>How many binary numbers have 3 0’s and 3 1’s (6 bit)</p>
+
+<ul>
+  <li>6 bits long and you need to pick a location for the 3 1’s
+    <ul>
+      <li>${6 \choose 3}$</li>
+    </ul>
+  </li>
+</ul>
+
+<p>ex 2. 10 pizzas, 4 types</p>
+
+<ul>
+  <li>13 bits
+    <ul>
+      <li>3 ‘bars’  (1’s)</li>
+      <li>10 items (0’s)</li>
+    </ul>
+  </li>
+</ul>
+
+<p>${13 \choose 3}$</p>
+
+<p>Or we could also ask where the 10 0’s are which would be</p>
+
+<p>${13 \choose 10}$ (it’s the same answer)</p>
+
+<h3 id="general-formula-2">General Formula</h3>
+
+<p>n - categories (n-1 1’s)</p>
+
+<p>k - things to pick (k 0’s)</p>
+
+<p>$(k+(n-1)) \choose k$</p>
+
+<div style="width: 100%" class="ui rounded images">
+  <img class="ui image" src="./cs1800/balls-and-bins.png" />
+</div>
+<h1 id="module-6---probability">Module 6 - Probability</h1>
+
+<h2 id="summary-2">Summary</h2>
+
+<p><a href="https://docs.google.com/document/d/1kwZ9J3YW15DrhdYEQJNNXSfFOA2qb5xgbJpxPMuImj0/edit">CS1802 - Probability</a></p>
+
+<div style="width: 100%" class="ui rounded images">
+  <img class="ui image" src="./cs1800/6-rec-notes.png" />
+</div>
+
+<h2 id="lesson-1-overview-of-probability">Lesson 1: Overview of Probability</h2>
+
+<p>Represents uncertainty</p>
+
+<ul>
+  <li>Makes guesses</li>
+</ul>
+
+<h2 id="lesson-2-part-1-events-experiments-sample-space-and-probabilities">Lesson 2 Part 1: Events, Experiments, Sample Space and Probabilities</h2>
+
+<p>An event is something that might happen</p>
+
+<ul>
+  <li>ex. flipping heads</li>
+</ul>
+
+<p>An experiment or observation is a situation with one or more possible outcomes</p>
+
+<ul>
+  <li>ex. flipping a coin (2 outcomes)</li>
+</ul>
+
+<p>A probability is a real number in the range [0,1] (inclusive)</p>
+
+<ul>
+  <li>0 - Will not happen</li>
+  <li>0.5 - 50/50 chance</li>
+  <li>1 - Guaranteed to happen</li>
+</ul>
+
+<p>$Pr(A)$ - Probability of A</p>
+
+<p>$Pr(heads) = 0.5$ or $Pr(C=H) =0.5$</p>
+
+<ul>
+  <li>Where C is a random variable and H is what we’re interested in</li>
+</ul>
+
+<h3 id="dice-example">Dice Example</h3>
+
+<p>S = {1,2,3,4,5,6}</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$Pr(event) = \frac{</td>
+      <td>E</td>
+      <td>}{</td>
+      <td>S</td>
+      <td>}$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Either 5 or 6:</strong></p>
+
+<p>E = {5,6}</p>
+
+<p>$Pr(\text{roll 5 or 6}) = \frac{1}{3}$</p>
+
+<h3 id="coin-example">Coin Example</h3>
+
+<p>S = {H,T}</p>
+
+<p>E = {E}</p>
+
+<p>$Pr(heads)=0.5$</p>
+
+<h3 id="two-dice-example">Two Dice Example</h3>
+
+<p>S = {(1,1),(1,2)….,(6,6)}</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$</td>
+      <td>S</td>
+      <td>= 6\times6= 36$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>What is $pr(\text{doubles})$?</strong></p>
+
+<p>E = {(1,1), (2,2) …}</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$Pr(\text{doubles}) = \frac{</td>
+      <td>E</td>
+      <td>}{</td>
+      <td>S</td>
+      <td>} = \frac{1}{6}$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Sum to 6:</strong></p>
+
+<p>E = {(1,5), (2,4) …}</p>
+
+<p>$Pr(\text{roll a 6}) = \frac{5}{36}$</p>
+
+<p><strong>Flipping 4 Coins</strong></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$</td>
+      <td>S</td>
+      <td>= 2^{4} = 16$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Example: Exactly 2 heads</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$</td>
+      <td>E</td>
+      <td>= {4 \choose 2} = 6$</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>We can use our combinations knowledge here</li>
+</ul>
+
+<p>$Pr(\text{2 heads}) = \frac{3}{8}$</p>
+
+<h2 id="lesson-2-part-2-fallacies-to-avoid">Lesson 2 Part 2: Fallacies to Avoid</h2>
+
+<ul>
+  <li>Two outcomes does NOT mean equal chance</li>
+</ul>
+
+<h3 id="inclusion-exclusion-principle">Inclusion-Exclusion Principle</h3>
+
+<p>$Pr(E_{1} \cup E_{2}) = Pr[E_1] + Pr[E_2] - Pr[E_1 \cap E_2]$</p>
+
+<h2 id="lesson-2-part-3-sampling-with-and-without-replacement">Lesson 2 Part 3: Sampling with and Without Replacement</h2>
+
+<ul>
+  <li>Without replacement
+    <ul>
+      <li>Cannot draw an item again</li>
+    </ul>
+  </li>
+  <li>With replacement
+    <ul>
+      <li>Can draw an item again</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Example: Urns and balls</p>
+
+<p>20 balls</p>
+
+<ul>
+  <li>18 are red</li>
+  <li>2 are green</li>
+</ul>
+
+<h3 id="with-replacement"><strong>With Replacement</strong></h3>
+
+<p>S = {red1, red2, green1…}</p>
+
+<p>Valid Draw: {r1,r1,g1}</p>
+
+<p><strong>Draw 2 Balls:</strong></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$</td>
+      <td>S</td>
+      <td>\times</td>
+      <td>S</td>
+      <td>\times</td>
+      <td>S</td>
+      <td>= 20\times 20\times 20 = 8,000$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>$Pr(\text{0 green balls}) = \frac{18^3}{8,000} = 0.729$</p>
+
+<p>$Pr(\text{3 green balls}) = \frac{2^3}{8,000} = 0.001$</p>
+
+<h3 id="without-replacement">Without Replacement</h3>
+
+<p>Valid Draw: {r1,r2,g1}</p>
+
+<p>Sample Size Space: $C(20,3) = 1140$ ←Outcomes</p>
+
+<p>$Pr(\text{0 green}) = \frac{C(18,3)}{1,140} = 0.716$</p>
+
+<h3 id="axons-of-probability">Axons of Probability</h3>
+
+<ul>
+  <li>Range [0,1]</li>
+  <li>$Pr(A) + Pr(\neg A) = 1$ (union of events)</li>
+  <li>$Pr(A\cup B) = Pr(A) + P(B) - P(A\cap B)$</li>
+</ul>
+
+<h2 id="lesson-3-independence-and-conditional-probability">Lesson 3: Independence and Conditional Probability</h2>
+
+<p>Events are independent if and only if $Pr(A\land B) = Pr(A) \times Pr(B)$</p>
+
+<p><strong>Example: At least one double in 3 rolls → Independence</strong></p>
+
+<p>$1-Pr(\text{no doubles on 3 rolls})$</p>
+
+<p><strong>Example:</strong></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$Pr(\text{sum of die1 and die2 is 7</td>
+      <td>die1 is 6})$</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>NOTE:</td>
+          <td>means “given”</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
+
+<p>When die1 is a 6: {(6,1),(6,2)…}</p>
+
+<ul>
+  <li>6 outcomes</li>
+</ul>
+
+<p>When sum is 7 and die1 is a 6: {(6,1)}</p>
+
+<ul>
+  <li>1 outcome</li>
+</ul>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$Pr(\text{die1 + die2 = 7</td>
+      <td>die is a 6}) = \frac{1}{6}$</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="general-formulas---dependence">General Formulas - Dependence</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$Pr(A</td>
+      <td>B) = \frac{Pr(A\land B)}{Pr(B)}$</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$Pr(A</td>
+      <td>B) = \frac{</td>
+      <td>(A\cap B)</td>
+      <td>}{</td>
+      <td>B</td>
+      <td>}$ (holds by definition)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="general-formulas---independence">General Formulas - Independence</h3>
+
+<p>If and only if A and B are dependent: $Pr(A\land B) = Pr(A) \times P(B)$</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Independence holds if and only if $P(A</td>
+      <td>B) = Pr(A)$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Example: Critical Bugs in Code</strong></p>
+
+<p>$Pr(\text{Bugs}) = Pr (\text{Bugs}\land\text{SB}) + Pr(\text{Bugs}\land\neg\text{SB})$</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$= Pr(\text{Bugs}</td>
+      <td>\text{SB})\times Pr(\text{SB}) + Pr(\text{Bugs}</td>
+      <td>\neg\text{SB}) \times Pr(\neg\text{SB})$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>= 0.12</p>
+
+<h2 id="lesson-4-part-1-mathematical-expectation">Lesson 4 Part 1: Mathematical Expectation</h2>
+
+<p><strong>Expected Value</strong></p>
+
+<ul>
+  <li>Value you should get if you average over many trials</li>
+</ul>
+
+<p>The expectation of a random variable (r.v.) X is $E[X] = \sum_x Pr(X=x) \times x$</p>
+
+<p><strong>Example:</strong></p>
+
+<p>D = outcome of a 6-sided die</p>
+
+<p>$E[D] = \frac{1}{6}\times 1 + \frac{1}{6} \times 2 + \frac{1}{6} + 3 … \frac{1}{6} \times 6 = 3.5$</p>
+
+<p><strong>Example:</strong></p>
+
+<p>L = outcome of the lottery with 1 in 10 million chance of winning, $2 million payout</p>
+
+<p>$E[L] = 2,000,000 (\frac{1}{10,000,000}) + 0\times\frac{9,999,999}{10,000,000} = $0.20$</p>
+
+<h3 id="linearity-of-expectation">Linearity of Expectation</h3>
+
+<p>Given rv (random variables) x, y and z=x+y then</p>
+
+<p>$E[z] = E[x]+E[y]$</p>
+
+<p>Example: Let z = sum of 2 six-sided dice. Let x and y be the first and 2nd rolls</p>
+
+<p>$E[z] = E[x] + E[y] = 3.5 + 3.5 = 7$</p>
+
+<p>Look out for this in exams!</p>
+
+<h2 id="lesson-5-bayes-rule">Lesson 5: Bayes’ Rule</h2>
+
+<p>How to combine:</p>
+
+<ul>
+  <li>Prior degree of belief</li>
+  <li>
+    <p>Evidence</p>
+  </li>
+  <li>A model of how likely it is that each hypothesis would produce the available evidence</li>
+</ul>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$Pr(\text{hypothesis</td>
+      <td>evidence}) \propto Pr(\text{hypothesis}) \times Pr(\text{evidence</td>
+      <td>hypothesis})$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>More precise:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$Pr(\text{hypothesis</td>
+      <td>evidence}) = \frac{Pr(\text{hypothesis}) \times Pr(\text{evidence</td>
+      <td>hypothesis})}{Pr(\text{evidence})}$</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>We, however, don’t need to precise answer when comparing two probabilities</li>
+</ul>
+
+<h3 id="general-formula-3">General Formula</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$Pr(\text{A</td>
+      <td>B}) = \frac{Pr(A) \times Pr(B</td>
+      <td>A)}{Pr(B)}$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Bayes’ Rule follows from the definition conditional probability</p>
+
+<p><strong>Derivation</strong></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$Pr(A\land B) = Pr(A</td>
+      <td>B) \times Pr(B) = Pr(B</td>
+      <td>A) \times Pr(A)$</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$Pr(A</td>
+      <td>B) = \frac{Pr(B</td>
+      <td>A) \times Pr(A)}{Pr(B)}$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Example: If I have a bag with 6-sided die and 20-sided die and I pull one out at random and roll a 6. Is it more likely to be a 6 or 20 sided die?</strong></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$Pr(\text{6</td>
+      <td>6-sided-die}) = \frac{1}{6}$</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$Pr(\text{6</td>
+      <td>20-sided-die}) = \frac{1}{20}$</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$Pr(\text{6-sided-die</td>
+      <td>6}) \propto Pr(\text{6</td>
+      <td>6-sided}) \times Pr(\text{6-sided}) = \frac{1}{12}$</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$Pr(\text{20-sided-die</td>
+      <td>6}) \propto Pr(\text{6</td>
+      <td>20-sided}) \times Pr(\text{20-sided}) = \frac{1}{40}$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>It is more likely for it to be a 6-sided die</p>
+
+<p><strong>Modify the prior:</strong></p>
+
+<ul>
+  <li>Bag contains 4 20-sided and 2 6-sided</li>
+</ul>
+
+<p>$Pr(\text{6-sided}) = \frac{1}{3}$</p>
+
+<p>$Pr(\text{20-sided}) = \frac{2}{3}$</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$Pr(\text{6-sided-die</td>
+      <td>6}) \propto Pr(\text{6</td>
+      <td>6-sided}) \times Pr(\text{6-sided}) = \frac{1}{18}$</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$Pr(\text{20-sided-die</td>
+      <td>6}) \propto Pr(\text{6</td>
+      <td>20-sided}) \times Pr(\text{20-sided}) = \frac{1}{30}$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Still more likely for it to be a 6-sided die</p>
+
+<h2 id="lesson-6-variance">Lesson 6: Variance</h2>
+
+<p><strong>Variance:</strong> How spread out a distribution is. How far are the samples to the mean on average?</p>
+
+<p>$E[x-E[x]] = 0$ (because the negatives and positives negate each other by definition)</p>
+
+<p><strong>Definition:</strong> For a r.v. X, $var(x) = E[(x-E[x]^2)]$ or $var(x) = E[x^2] - E[x]^2$</p>
+
+<p>The standard deviation of x is $\sqrt{var(x)}$</p>
+<h1 id="module-7---sequences-series-and-induction">Module 7 - Sequences, Series, and Induction</h1>
+
+<p><a href="https://docs.google.com/document/d/1dMdN6-wra1u7sPNF69pXt1j30pJF-xfoQtCULEgwM0A/edit">CS1802 - Sequences and Series</a></p>
+
+<h2 id="lesson-1-sequences">Lesson 1: Sequences</h2>
+
+<p>Order matters</p>
+
+<p>ex. 3, 10, 17, 24, 31, 38</p>
+
+<ul>
+  <li>Each element is called a term</li>
+</ul>
+
+<h3 id="notation-1">Notation</h3>
+
+<ul>
+  <li>Counting starts at 1
+    <ul>
+      <li>$a_1 = \text{1st term} =3$</li>
+      <li>$a_2 = \text{2nd term} =10$</li>
+      <li>etc.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="sequence">Sequence</h3>
+
+<ul>
+  <li>A function between a subset natural numbers to a set of numbers</li>
+  <li>3, 10, 17, 24, 31, 38, … (the … means that it goes on forever)
+    <ul>
+      <li>Notice in this example, there is 7 between each number</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="arithmetic-sequence">Arithmetic Sequence</h3>
+
+<ul>
+  <li>Grows by a fixed amount</li>
+</ul>
+
+<p><strong>Getting an Arbitrary Term:</strong></p>
+
+<p>ex. 3, 10, 17, 24, 31, 38, …</p>
+
+<ul>
+  <li>Start at 3 and add 7 (x-1) times
+    <ul>
+      <li>3 + 7 (x-1)</li>
+      <li>ex. get the 23rd term: 3 + (23-1) * 7</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>General Form:</strong></p>
+
+<p>$t(n) = a_1 + (n-1)d$</p>
+
+<ul>
+  <li>$a_1$ is the starting term</li>
+  <li>$d$ is the growth factor</li>
+</ul>
+
+<h3 id="geometric-sequence">Geometric Sequence</h3>
+
+<p>1, 5, 25, 125, 625, 3125, …</p>
+
+<ul>
+  <li>You multiply by 5 each time</li>
+</ul>
+
+<p>$t(n) = 1 \times5^{n-1}$</p>
+
+<p><strong>General Form:</strong></p>
+
+<p>$t(n) = a_1\times r^{n-1}$</p>
+
+<ul>
+  <li>$a_1$ is the first term</li>
+  <li>$r$ is the multiplicative factor</li>
+</ul>
+
+<h3 id="quadratic-sequence">Quadratic Sequence</h3>
+
+<p>ex. 13, 23, 37, 55, 77</p>
+
+<ul>
+  <li>23-13 = 10</li>
+  <li>37-23 = 14</li>
+  <li>55-37 = 18</li>
+  <li>77-55 = 22</li>
+</ul>
+
+<p>But what if we look at the differences as a sequence?</p>
+
+<p>10, 14, 18, 22, …</p>
+
+<ul>
+  <li>Has a growth factor of 4</li>
+</ul>
+
+<p>In this case, 4 would be the second difference</p>
+
+<p><strong>Quadratic Sequence: **</strong>when the 2nd difference is a constant</p>
+
+<p><strong>General Form:</strong></p>
+
+<p>$t(n) = an^{2} + bn + c$</p>
+
+<ul>
+  <li>Recall: this is the quadratic formula</li>
+</ul>
+
+<p>ex. 13, 23, 37, 55, 77</p>
+
+<p>What is the nth term for this?</p>
+
+<p>$t(1) = 13 = a+b+c$</p>
+
+<p>$t(2) = 23 = a*2^{2} + 2b + c = 4a+2b+c$</p>
+
+<p>$t(3) = 37 =  a<em>3^2 + b</em>3 +c = 9a+3b+c$</p>
+
+<h3 id="system-of-linear-equations">System of Linear Equations</h3>
+
+<ul>
+  <li>
+    <p>System of Linear Equations</p>
+
+    <p>13, 23, 37, 55, 77</p>
+
+    <p>a+b+c = 13</p>
+
+    <p>4a + 2b + c = 23</p>
+
+    <p>9a + 3b + c = 37</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    9a + 3b + c = 37
+
++ -4a - 2b - c = -23
+</code></pre></div>    </div>
+
+    <p>— ————————</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     5a + b = 14
+
+    4a + 2b + c = 23
+
+ +  -a - b - c = -13
+</code></pre></div>    </div>
+
+    <p>— ————————</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      3a + b = 10
+
+    5a + b = 14
+
++ -3a - b = -10
+</code></pre></div>    </div>
+
+    <p>— —————-</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     a = 2
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>Plug in values and you get:</p>
+
+<p>$t(n) = 2n^2 + 4n +7$</p>
+
+<h2 id="lesson-2-series">Lesson 2: Series</h2>
+
+<p>Summing up terms:</p>
+
+<p>$\sum_{i=1}^{5} a_i$ ←Sum up the first 5 terms</p>
+
+<h3 id="general-form">General Form:</h3>
+
+<p>$\sum_{i=1}^{n} a_i$</p>
+
+<p>Ex.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1+2+3+4+5 = s
+</code></pre></div></div>
+
+<ul>
+  <li>5+4+3+2+1 = s</li>
+</ul>
+
+<p>— ———————</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 6+6+6+6+6 = 2s
+</code></pre></div></div>
+
+<h3 id="general-form-arithmetic-series">General Form: Arithmetic Series</h3>
+
+<p>$\sum_{i=1}^{n} a_i = \frac{(n+1)n}{2}$</p>
+
+<p>$\sum_{i=1}^{n} a_i = \frac{(a+(a+(n-1)d))n}{2}$</p>
+
+<h3 id="general-form-geometric-series">General Form: Geometric Series</h3>
+
+<p>Example: $3+\frac{3}{2}+\frac{3}{4}+\frac{3}{8}$</p>
+
+<ul>
+  <li>r = $\frac{1}{2}$</li>
+  <li>$n_1 = 3$</li>
+</ul>
+
+<p>$\frac{s}{2} = \frac{3}{2} + \frac{3}{4} + \frac{3}{8} + \frac{3}{16}$</p>
+
+<ul>
+  <li>If you subtract this by $3+\frac{3}{2} + \frac{3}{4} + \frac{3}{8}$  , it results in just the first and last term</li>
+</ul>
+
+<p>$s-r*s = 1-r^n$</p>
+
+<p>$s(1-r) = 1-r^n$</p>
+
+<p>$\therefore s = \frac{a-r^n}{ar}$</p>
+
+<h2 id="lesson-3-proof-by-induction">Lesson 3: Proof By Induction</h2>
+
+<p><strong>Example:</strong></p>
+
+<div style="width: 100%" class="ui rounded images">
+  <img class="ui image" src="./cs1800/grid-1.png" />
+</div>
+
+<p>We proves that we can fit the L shaped piece into any 2x2 grid</p>
+
+<p>What about 4x4?</p>
+
+<ul>
+  <li>Yes, because we can split it up into 4 2x2 grids</li>
+</ul>
+
+<div style="width: 100%" class="ui rounded images">
+  <img class="ui image" src="./cs1800/grid-2.png" />
+</div>
+
+<p>What about 8x8?</p>
+
+<ul>
+  <li>Yes, because we can divide it into 4 4x4 grids</li>
+</ul>
+
+<p>We are essentially building up a foundation</p>
+
+<p><strong>Example 2:</strong></p>
+
+<p>3 cent coin</p>
+
+<p>5 cent coin</p>
+
+<ul>
+  <li>Can we make any amount of change greater or equal to 8 cents?</li>
+</ul>
+
+<p>Assume we have figured out how to make k cents worth of change using 3 cent and 5 cent coins. Can we make k+1 cents?</p>
+
+<p>Case 1:</p>
+
+<ul>
+  <li>No 5 cent coins
+    <ul>
+      <li>In this case, take 3 3 cent coins away and add 5 cents</li>
+      <li>k→k+1</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Case 2:</p>
+
+<ul>
+  <li>At least 1 5 cent coin</li>
+  <li>In this case, remove 5 cent coin and add 2 3 cent coins</li>
+  <li>k→ k+1</li>
+</ul>
+
+<p>Proof by induction</p>
+
+<h3 id="definition">Definition:</h3>
+
+<p>$P$ is some property defined over the integers and $a$ is some fixed integer and</p>
+
+<ol>
+  <li>$P(a)$ is true (base case)</li>
+  <li>$\forall k\in \mathbb{Z}, n \leq a, P(N)$ (inductive step)</li>
+</ol>
+
+<p>This applies $\forall n \in \mathbb{Z} , n \geq a, P(n)$</p>
+
+<p>Example:</p>
+
+<ul>
+  <li>$P(n)$ - n cents can be made with 3 cent coins and 5 cent coins, $n\geq 8$</li>
+</ul>
+
+<p>Proof by Induction</p>
+
+<p>Consider the base case when n=8, we know that 8 can be made with 1 3 cent coin and 1 5 cent coin. Now consider the inductive hypothesis for an arbitrary k, k≥8. We can make k cents using 3 cent and 5 cent coins. Consider two cases. Case 1 in our k cents. The number of 5 cent coins is zero. Then remove 3 3 cent coins to make k-9 cents. Now add 2 5 cent coins to make k+1 coins. Case 2. We have at least 1 5 cent coin. Remove it to make k-5 cents. Now add two 3 cent coins to make k+1 cents. Since we know P(8) to be true and P(k) implies P(K+1) then P(n) is true for all $n\in \mathbb{Z}, n\geq 8$. Q.E.D.</p>
+
+<p>Example:</p>
+
+<p>$\sum_{i=1}^{n} i = 1+2+3…+n = \frac{n(n+1)}{n}$</p>
+
+<p>Prove this by induction</p>
+
+<ul>
+  <li>Base case</li>
+  <li>Inductive step</li>
+</ul>
+
+<p>Proof by Induction</p>
+
+<p>Consider the base case when n=1 then we know $\frac{1(1+1)}{1} = 1$ which is the series with one term. Let’s assume for some $k$ $1+2+3…k = \frac{k(k+1)}{2}$ by our inductive hypothesis. Consider $1+2+3 …+k+(k+1)$which is $\frac{k(k+1)}{2} + (k+1)$ by our inductive hypothesis.</p>
+
+<p>$\frac{k(k+1)}{2} = \frac{(k+2)(k+1)}{2}$</p>
+
+<p>So we have $1+2+3…+k+(k+1) = \frac{(k+2)(k+1)}{2}$ as desired. So it is true for all n. Q.E.D.</p>
+
+<h2 id="lesson-4-strong-induction">Lesson 4: Strong Induction</h2>
+
+<p><strong>Strong Mathematical Induction</strong></p>
+
+<p>$P(n)$ property defined over the integers with a, b fixed integers, a≤b. Base P(a), P(a+1), P(a+2), … P(b) are all true. Inductive $\forall k \geq b$ if P(i) is true $\forall i, a\leq i\leq k$ then P(k+1) is true. This implies $\forall n, n\geq a, P(n)$ is true.</p>
+
+<p>Consider the Sequence:</p>
+
+<p>$a_0 = 0,\ a_1=4,\ a_k = 6 \times a_{k-1} - 5 \times a_{k-2}$</p>
+
+<p>$\therefore a_{2} = 6\times 4 - 5 \times 0 = 24$</p>
+
+<p>$a_3 = 6\times 24 - 5 \times 4 = 124$</p>
+
+<p>Claim $a_n = 5^n - 1$</p>
+
+<ul>
+  <li>This needs strong induction</li>
+</ul>
+
+<p>$P(n) = a_k = 6\times a_{k-1} - 5 \times a_{k-2}$</p>
+
+<p>$a_n = 5^n -1$</p>
+
+<h3 id="proof-by-strong-induction"><strong>Proof by Strong Induction</strong></h3>
+
+<p>Consider the base case $P(0),\ P(1),\ P(2)$</p>
+
+<p>$P(0) = a_0=0=5^0 -1 = 1-1 =0$</p>
+
+<p>$P(1) = 4 = 5^1-1$</p>
+
+<p>$P(2) = 24 = 5^2 - 1$</p>
+
+<p>Consider the case when n is 0, we know that $5^0-1 = 0$, which is $a_0$ as defined. We know $a_{k+1}$is $6\times a_k - 5\times a_{k+1}$ by definition. Inductive hypothesis is that P(i) is true for all 0≤i≤k, $a_i = 5^1 -1.$ Consider $a_{k+1} = 6\times(a_k)-5 \times a_{k-1}$ which is $6(5^k -1) - 5(5^{k-1}-1)$ (string induction). Therefore $a_{k+1} = 5^{k+1} -1$. $\forall n, a_n = 5^n -1$. Q.E.D.</p>
+
+<h2 id="lesson-5-recurrences">Lesson 5: Recurrences</h2>
+
+<p>Looking at recursion.</p>
+
+<p>Substitution Method:</p>
+
+<p>Ex.</p>
+
+<p>T(0) = 5 (base case)</p>
+
+<p>T(n) = T(n-1) + n (next step)</p>
+
+<p>How can we define T(n) without T?</p>
+
+<ul>
+  <li>Recurrence relation</li>
+</ul>
+
+<p>T(0) = 5</p>
+
+<p>T(n) = T(n-1) + n</p>
+
+<p>T(1) = T(0) + 1</p>
+
+<p>T(3) = T(1) + 2 = T(0) 1 + 2</p>
+
+<p>T(4) = T(2) + 3 = T(0) 1 + 2 + 3</p>
+
+<p>T(5) = T(3) + 4 = T(0) 1 + 2 + 3 + 4</p>
+
+<p>T(n) = T(0) + 1 + 2 + 3 …</p>
+
+<p>$T(n) = T(0) + \frac{n(n+1)}{2} = 5 + \frac{n(n+1)}{2}$</p>
+
+<p>Example 2:</p>
+
+<p>T(1) = 1</p>
+
+<p>T(n) = n + 2 * T(n/2)</p>
+
+<p>$T(\frac{n}{2}) = \frac{n}{2} + 2\times T(\frac{n}{4})$</p>
+
+<p>$T(n) = n+ 2( \frac{n}{2} + 2\times T(\frac{n}{4}))$</p>
+
+<p>$T(\frac{n}{4}) = \frac{n}{4}+ 2\times T(\frac{n}{8})$</p>
+
+<p>$T(\frac{n}{8}) = \frac{n}{8} + 2\times T(\frac{n}{16})$</p>
+
+<p>$T(n) = n+2(\frac{n}{2} + 2(\frac{n}{4} + 2(\frac{n}{8} + 2\times T(\frac{n}{16}))))$</p>
+
+<p>$T(n) = n+n+n+… 2^k\times T(\frac{n}{k})$</p>
+
+<p>$T(n) = kn +2^k\times T(\frac{n}{k})$</p>
+
+<p>Goal:</p>
+
+<ul>
+  <li>No T’s on the right hand side</li>
+</ul>
+
+<p>$T(1) = 1$ so what value of k does $T(\frac{n}{2^k}) = T(1)$</p>
+
+<p>$\frac{n}{2^k} = 1$</p>
+
+<p>$n = 2^k$</p>
+
+<p>$\therefore k = log_2(n)$</p>
+
+<p>$T(n) = n\times log_2 (n) + n$</p>
+<h1 id="module-8---growth-of-functions-with-sorting">Module 8 - Growth of Functions with Sorting</h1>
+
+<h2 id="lesson-1-sorting-a-list-of-number-insertion-sort">Lesson 1: Sorting a List of Number: Insertion Sort</h2>
+
+<p>We want to ask: How good are these sorting algorithms?</p>
+
+<p>Input: 7,3,2,4
+Output: 2,3,4,7</p>
+
+<p>A list with one element is <em>always</em> sorted</p>
+
+<p>This is an <strong>invariant</strong> which means that it is always true (never varies).</p>
+
+<h3 id="insertion-sort">Insertion Sort:</h3>
+<ol>
+  <li>Swap until it is in the correct location</li>
+  <li>Advance Bar</li>
+</ol>
+
+<div style="width: 100%" class="ui rounded images">
+  <img class="ui image" src="./cs1800/insert-sort.png" />
+</div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>insertionSort(A)
+    for i from 1 to n-1:
+        current := A[i] // Current is one to insert
+        j := i-1 // Counter to end
+        while j&gt;= 0 and A[j] &gt; current:
+            swap(A[j], current)
+            j=j-1
+</code></pre></div></div>
+
+<p>How expensive is this?</p>
+
+<p>Loop through every element -1</p>
+
+<p>What doe sit do? Possible operations?</p>
+<ul>
+  <li>Assignment</li>
+  <li>Index into an array</li>
+  <li>Subtraction</li>
+  <li>Comparison</li>
+</ul>
+
+<p>(These are called atomic operations)</p>
+
+<p>A swap is 3 assignments</p>
+
+<p>Atomic operations cost 1</p>
+<ul>
+  <li>Any one thing that a computer does</li>
+</ul>
+
+<p>We need to <em>count the loop</em></p>
+<ul>
+  <li>Worse case scenerio</li>
+</ul>
+
+<p>for loop: n-1 iterations</p>
+
+<p>while loop</p>
+<ul>
+  <li>i=1 only 1 time</li>
+  <li>i=2 most=2</li>
+  <li>i=3 most=3</li>
+</ul>
+
+<p>$\therefore$ Worst case: $\frac{(n-1)(n)}{2}$</p>
+
+<h2 id="lesson-2-sorting-a-list-of-numbers-merge-sort">Lesson 2: Sorting a List of Numbers: Merge Sort</h2>
+
+<p>Recall: a list of size 1 is already sorted</p>
+
+<p>Merge Sort</p>
+<ul>
+  <li>Take two lists and compare first element and remove the smaller one</li>
+</ul>
+
+<p>Does long does this take?</p>
+<ul>
+  <li>Worst case scenerio? (in terms of n)</li>
+</ul>
+
+<p>2n comparisons to merge sorte lists</p>
+
+<p>What we know:</p>
+<ul>
+  <li>List of size 1 is sorted</li>
+  <li>Merging list is “fast”</li>
+</ul>
+
+<div style="width: 100%" class="ui rounded images">
+  <img class="ui image" src="./cs1800/merge-sort.png" />
+</div>
+
+<p>Now we can merge them quickly</p>
+
+<p>Number of ways to have a number n is lg(n)</p>
+
+<p>$\therefore \text{cost} = n\cdot lg(n)$</p>
+
+<p>Code:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mergeSort(A, left, right)
+    if |A| &gt; 1
+        middle = left + (right-left)/2
+        B = mergeSort(A, left, middle)
+        C = mergeSort(A, middle+1, right)
+        merge(B, C)
+
+merge(A, B)
+    c = []
+    while (|A| &gt; 0 and |B| &gt; 0)
+        if (A[0] &lt; B[0])
+            remove A[0] add to back of c
+        else
+            remove B[0] add to back of c
+</code></pre></div></div>
+
+<p>Is merge sort better than insertion sort? Yes!!</p>
+
+<p>$\text{Merge Sort}: \approx n\cdot lg(n)$</p>
+
+<p>$\text{Insertion Sort}: \frac{n(n-1)}{2} \approx n^2$</p>
+
+<p>IMAGE:</p>
+
+<p>![[Module 8 - Growth of Functions with Sorting/Screenshot_from_2020-12-01_21-04-43.png]]</p>
+
+<h2 id="lesson-3-asymptotic-and-big-o">Lesson 3: Asymptotic and Big O</h2>
+
+<p>Why can we say “about”?</p>
+
+<p>We want to make algorithms efficent</p>
+
+<p>We’re going ot focus on steps</p>
+<ul>
+  <li>What is the growth rate of the change</li>
+</ul>
+
+<p>Consider this code:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>someFunc(A) //where |A| = n
+    n = |N| // Cost 2
+    while (n&gt;0) //Cost 1
+    {
+        temp = x // Cost 2
+        x = y // Cost 1
+        y = temp // Cost 1
+        n = n - 1 // Cost 2
+    }
+</code></pre></div></div>
+
+<p>The total cost of this code is 7n+3</p>
+
+<p>How different is 7n+3 and n when comparing function order?</p>
+<ul>
+  <li>The gap is insignificant when we go to infinity</li>
+</ul>
+
+<h3 id="big-o-notiation">Big O Notiation</h3>
+<p>Classify function (group them) so we can compare them.</p>
+
+<p>Let f(n) and g(n) be function mapping non-negative integers to real numbers.</p>
+
+<p>f(n) is O(g(n)) if there exists a real constant c&gt;0 and an integer $n_o &gt;= 1$
+such that $f(n) &lt;= c\cdot g(n) \forall n &gt;= n_o$</p>
+
+<p>Claim: 7n+3 is O(n)</p>
+<ul>
+  <li>They are the same class</li>
+</ul>
+
+<p>Proof</p>
+<blockquote>
+  <p>Let c=8, then we konw that $7n+3&lt;=8n$ for all $n&gt;=3$. By the definition of Big
+O, 7n+3 is o(n).</p>
+</blockquote>
+
+<h2 id="lesson-4-ordering-functions">Lesson 4: Ordering Functions</h2>
+
+<p><strong>Big Omega</strong></p>
+
+<p>F(n) is $\Omega$(g(n)) if there exists a real constant c&gt;0 and integer 
+$n_o &gt;=1$ such that $c\cdot g(n) &lt;= f(n) \forall n &gt;= n_o$</p>
+
+<p><strong>Big Theta</strong></p>
+
+<p>f(n) is $\Theta$(g(n)) if there exists constants $c_1&gt;0,c_2&gt;0\text{and} n_o &gt;=1$
+such that $c_1 \cdot g(n) &lt;= f(n) &lt;= c_2 \cdot g(n)$</p>
+
+<p>$f(n) \text{is} O(g(n)) =&gt; f(n) &lt;= g(n)$</p>
+
+<p>$f(n) \text{is} \Omega(g(n)) =&gt; f(n) &gt;= g(n)$</p>
+
+<p>$f(n) \text{is} \Theta(g(n)) =&gt; f(n) = g(n)$</p>
+
+<p><strong>Little</strong></p>
+
+<p>f(n) is o(g(n)) if for all constants c&gt;0, 
+$\exists n_o &gt; 0, f(n) &lt; c\cdot g(n)\forall n &gt;= n_o$</p>
+
+<p>f(n) is $\omega(g(n))$ (little omega) if for all constants c&gt;0, 
+$\exists n_o &gt;0, f(n) &lt; c\cdot g(n) \forall n&gt;= n_o$</p>
+
+<p>f(n) is $\theta(g(n))$ (little theta) if for all constants c&gt;0, 
+$\exists n_o &gt;0, c\cdot g(n) &lt; f(n) \forall n&gt;= n_o$</p>
+
+<p><strong>Size of Functions</strong></p>
+
+<p>In order of size:</p>
+
+<p>constants, logs, polylogorithms, polynomials, exponential</p>
+
+<p>Note: Exponential algorithms are not possible</p>
+:ET

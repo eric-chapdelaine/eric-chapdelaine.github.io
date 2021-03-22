@@ -2,9 +2,11 @@
   <div class="content">
     <span class="title">{{ include.page.title }}</span>
     <div class="meta">
-        <span class="date">Status: {{ include.page.status }}</span>
-        <br />
-        <span class="date">Professor: {{ include.page.professor }}</span>
+      <span class="date">{{ include.page.date | date_to_string }}</span>
+    </div>
+
+    <div class="description">
+      {{ include.page.content | markdownify | strip_html | truncatewords: 40 }}
     </div>
   </div>
 </a>
