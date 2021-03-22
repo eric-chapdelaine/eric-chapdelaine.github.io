@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="60mm"
+   height="30mm"
+   viewBox="0 0 60 30"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.0.2 (1.0.2+r75+1)"
+   sodipodi:docname="lec25-fig1.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="6.0602058"
+     inkscape:cx="121.64774"
+     inkscape:cy="54.431913"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     showborder="true"
+     width="200mm"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:window-width="1920"
+     inkscape:window-height="1040"
+     inkscape:window-x="0"
+     inkscape:window-y="40"
+     inkscape:window-maximized="1"
+     inkscape:document-rotation="0">
+    <inkscape:grid
+       type="xygrid"
+       id="grid815"
+       units="mm"
+       spacingx="10"
+       spacingy="10"
+       empspacing="4"
+       dotted="false" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-177)">
+    <rect
+       style="fill-opacity:0.12;stroke:#000000;stroke-width:0.140441;stroke-linejoin:round"
+       id="rect8"
+       width="14.862175"
+       height="29.13884"
+       x="19.525366"
+       y="177.38942" />
+    <circle
+       style="fill-opacity:0.12;stroke:#000000;stroke-width:0.140441;stroke-linejoin:round"
+       id="path10"
+       cx="17.72073"
+       cy="179.06737"
+       r="1.2339422" />
+    <circle
+       style="fill-opacity:0.12;stroke:#000000;stroke-width:0.140441;stroke-linejoin:round"
+       id="path12"
+       cx="36.380013"
+       cy="204.61285"
+       r="1.2378553" />
+    <text
+       style="font-size:2.64583px;font-family:monospace;-inkscape-font-specification:'monospace, Normal';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       xml:space="preserve"
+       id="text16"
+       y="183.82574"
+       x="3.2946327"><tspan
+         sodipodi:role="line"
+         id="tspan14"
+         x="3.2946327"
+         y="183.82574"
+         style="stroke-width:0.264583">Water Main</tspan></text>
+    <text
+       style="font-size:2.64583px;font-family:monospace;-inkscape-font-specification:'monospace, Normal';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       xml:space="preserve"
+       id="text30"
+       y="204.56183"
+       x="38.647442"><tspan
+         sodipodi:role="line"
+         id="tspan28"
+         x="38.647442"
+         y="204.56183"
+         style="stroke-width:0.264583">Hydrant</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 17.762262,180.61431 v 11.78848 l 17.350202,12.23939"
+       id="path15" />
+    <text
+       xml:space="preserve"
+       style="font-size:2.54805px;line-height:0;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.0637013"
+       x="9.0274811"
+       y="201.17412"
+       id="text19"><tspan
+         sodipodi:role="line"
+         id="tspan17"
+         x="9.0274811"
+         y="201.17412"
+         style="stroke-width:0.0637013">40 - x</tspan></text>
+    <path
+       style="fill:#b3b3b3;stroke:#c6c6c6;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 17.762262,192.40279 v 13.38447"
+       id="path23" />
+    <text
+       xml:space="preserve"
+       style="font-size:4.01459px;line-height:0;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.100365"
+       x="13.836718"
+       y="189.00003"
+       id="text850"><tspan
+         sodipodi:role="line"
+         id="tspan848"
+         x="13.836718"
+         y="189.00003"
+         style="stroke-width:0.100365">x</tspan></text>
+  </g>
+</svg>
