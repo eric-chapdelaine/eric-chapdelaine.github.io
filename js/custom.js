@@ -11,17 +11,3 @@ function setDetails(open) {
         a[i].open = open;
     }
 }
-
-// $('.ui.sticky')
-//   .sticky({
-//     context: '#'
-//   })
-// ;
-
-$(document).ready(function(){
-     $('.ui.sticky')
-  .sticky({
-    context: '#example1'
-  });
-
- })
