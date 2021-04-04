@@ -3,15 +3,12 @@ layout: notes
 ---
 
 
-<!-- <div id="toc" class="nonprintable"></div> -->
-
-<div class="contents" class="nonprintable"></div>
+<div class="contents nonprintable"></div>
 
 
 <div class="segment ui text container document">
   <h1 id=""><span class="half-background">{{ page.title }}</span></h1>
   <hr>
-
         <button class="ui button" onClick="setDetails(false);">Close all sections</button>
         <button class="ui button" onClick="setDetails(true);">Open all sections</button>
     <div id="doc">
@@ -22,29 +19,28 @@ layout: notes
 <script>
     // Onetime:
     //Create sections which are defined as area between two h1's
-    const regex = /<h1\s*\S.*?(?=\s*<h1|$)/gs;
+    betweenH1 = /<h1.*?(?=<h1|$)/gs;
     var doc = document.getElementById('doc').innerHTML;
-    var headers = doc.match(regex);
+    var sectionsBody = doc.match(betweenH1);
 
-    curID_regex = /(?<=<h[1-3][^>]*id=").*?(?=")/gs;
-    // TODO: Maybe make this handle only one header type 
-    any_header = /(?<=<h[123][^>]*>)\s*\S.*?(?=\s*<\/h[123]|$)/gs;
-    var newHTML, curIDs, cur_headers;
+    anyHeaderID = /(?<=<h[1-3][^>]*id=").*?(?=")/gs;
+    anyHeaderText = /(?<=<h[123][^>]*>).*?(?=<\/h[123])/gs;
+    var newHTML, curIDs, curHeaders;
     document.getElementById('doc').innerHTML = "";
     var contents = "<nav>In Open Sections:";
-    for (var i = 0; i < headers.length ; i++) {
+    for (var i = 0; i < sectionsBody.length ; i++) {
         //contents
-        cur_headers = headers[i].match(any_header);
-        curIDs = headers[i].match(curID_regex);
+        curHeaders = sectionsBody[i].match(anyHeaderText);
+        curIDs = sectionsBody[i].match(anyHeaderID);
         contents += "<div data-id='" + curIDs[0] + "' hidden>";
 
-        for (var j = 0; j < cur_headers.length ; j++){
-            contents += "<a href='#" + curIDs[j] + "'>" + cur_headers[j] + "</a><br />";
+        for (var j = 0; j < curHeaders.length ; j++){
+            contents += "<a href='#" + curIDs[j] + "'>" + curHeaders[j] + "</a><br />";
         }
         contents += "</div>";
 
         // Body
-        document.getElementById('doc').innerHTML += "<details id='" + curIDs[0] + "'><summary>" + headers[i].match(any_header)[0] + "</summary>" + headers[i] + "</details>";
+        document.getElementById('doc').innerHTML += "<details id='" + curIDs[0] + "'><summary>" + sectionsBody[i].match(anyHeaderText)[0] + "</summary>" + sectionsBody[i] + "</details>";
     }
     document.getElementsByClassName("contents")[0].innerHTML = contents;
     
