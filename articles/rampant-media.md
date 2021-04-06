@@ -4,6 +4,7 @@ type: article
 title: Rampant Media&#58; A Threat to Our Unity
 # All dates must be YYYY-MM-DD format!
 date: 2021-01-13
+comments: true
 labels:
   - Social Media
   - Polarization
