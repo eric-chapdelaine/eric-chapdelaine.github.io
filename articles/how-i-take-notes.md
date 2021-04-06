@@ -4,7 +4,6 @@ type: article
 title: How I Take Notes
 # All dates must be YYYY-MM-DD format!
 date: 2021-03-31
-hidden: true
 labels:
   - Notetaking
   - Notes
