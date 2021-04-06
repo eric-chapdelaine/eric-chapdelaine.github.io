@@ -85,30 +85,51 @@ The *quick* brown fox jumps over the *lazy* dog.
 
 > This is a block quote
 
-I use kramdown to convert what I write during lecture (markdown as shown above) to something that can be displayed on a webpage (HTML). You can also put HTML directly into Markdown. I like to view notetaking with the philosophy that *the method that requires the least energy persists*. As such, I wanted to reduce the friction of writing good notes. Markdown is the best option for this. It's the easiest (and quickest) to type during lecture. Unlike a what-you-see-is-what-you-get editor (such as Google Docs or Microsoft Word), using the plain text editor Vim (more on that later) speeds up the process by not having to use your mouse. Also, because this is displayed as HTML (on a webpage), you are free to add your own CSS styling to it.
+I use kramdown to convert what I write during lecture (markdown as shown above) to something that can be displayed on a webpage (HTML). You can also put HTML directly into Markdown. I like to view notetaking with the philosophy that *the method that requires the least energy persists*. As such, I wanted to reduce the friction of writing good notes. Markdown is the best option for this. It's the easiest -- and quickest -- to type during lecture. Unlike a what-you-see-is-what-you-get editor (such as Google Docs or Microsoft Word), using the plain text editor Vim (more on that later) speeds up the process by not having to use your mouse. Also, because this is displayed as HTML (on a webpage), you are free to add your own CSS styling to it.
 
 
 ### JavaScript: Adding Features
 
 However, you can't do everything with just plain Markdown. But because it renders into HTML, you can do pretty much everything else with JavaScript.
 
-For example, mathematical formulae. I wanted to be able to use this method of note taking with math as well -- therefore reducing the limitations that digital note taking has. For this, I use MathJax, a JavaScript library that can render $\LaTeX$ into HTML. This way, I get the benefits of $\LaTeX$ without the complexness of using it for everything. Installing MathJax on your website automatically converts plaintext to $\LaTeX$, for example `$\lim_{n \to \infty} \frac{3n}{n} = 3$`, to $\lim_{n \to \infty} \frac{3n}{n} = 3$.
+For example, mathematical formulae. I wanted to be able to use this method of note taking with math as well therefore reducing the limitations that digital note taking has. For this, I use MathJax, a JavaScript library that can render $\LaTeX$ into HTML. This way, I get the benefits of $\LaTeX$ without the complexness of using it for everything. Installing MathJax on your website automatically converts plaintext to $\LaTeX$, for example `$\lim_{n \to \infty} \frac{3n}{n} = 3$`, to $\lim_{n \to \infty} \frac{3n}{n} = 3$.
 
-Another thing that I add is automatic code syntax highlighting. For this, I use [highlight.js](https://highlightjs.org/). MathJax and highlight.js are the only two scripts that I use that I didn't make myself. Anything written in JavaScript can be used. 
+Another thing that I add is automatic code syntax highlighting. For this, I use [highlight.js](https://highlightjs.org/). 
 
-Two other features that I wanted to add were collapsible sections and automatic table of contents. For this, I relied on regular expressions. 
+MathJax and highlight.js are the only two scripts that I use that I didn't make myself. Even though I've only mentioned these two, anything written in JavaScript can be used. 
 
-I consider a section to mean any HTML that is between two `h1` tags (including the first). Each section is then placed into its own `details` tag. The regular expression for that is `/<h1.*?(?=<h1|$)/gs` and is represented by the following diagram:
+Two other features that I wanted to add were collapsible sections and automatic table of contents. For this, I relied on regular expressions. Regular expressions are just an advanced way to search for text. So, for example, you can search for text between other text. This is called 'positive lookahead' and it means that in order for something to be a match, there needs to be another piece of text, however, that other piece of text itself isn't matched.  Consider the following example:
+
+> The fast dog likes the other dog
+
+Now, what if we want to replace all instances of the word 'dog' with 'cat' but only if the word 'fast' is before it.
+
+So we want:
+
+> The fast cat likes the other dog
+
+The regular expression that we would use would be `/(?<=fast )dog /gs`. The `(?<= XXX )` represents the positive lookahead. We can also visualize this:
+
+<div style='width: 100%' class='ui rounded images'>
+<img class='ui image' src='/articles/how-i-take-notes/positiveLookahead.svg'>
+</div>
+
+
+Now, going back to the note taking, I consider a section to mean any HTML that is between two `h1` tags (including the first). For this, we need to use a positive lookahead. In order for a section to end, one of two things must happen, either the end of the file or another `h1` tag is open. But inside each section, there can be anything. The visualization below shows what we want:
 
 <div style='width: 100%' class='ui rounded images'>
 <img class='ui image' src='/articles/how-i-take-notes/betweenH1.svg'>
 </div>
 
-The `summary` tag inside the `details` is also handled by a regular expression and is just the text inside the first header (which is the `h1`). To do this, the regular expression is `/(?<=<h[123][^>]*>).*?(?=<\/h[123])/gs` and is represented by the following diagram:
+So, we start with the opening of a `h1` tag, then it can be anything, then we stop the matching right before the opening of another `h1` tag or the end of the file. The regular expression for that is `/<h1.*?(?=<h1|$)/gs`. I then place each section into its own `details` tag.
+
+The `summary` tag inside the `details` is also handled by a regular expression and it is just the text inside the first header (which is the `h1`). Another way to say this is the title of the section is the HTML between the start of one header tag and the end of the same tag. To do this, the regular expression is `/(?<=<h[123][^>]*>).*?(?=<\/h[123])/gs` and is represented by the following diagram:
 
 <div style='width: 100%' class='ui rounded images'>
 <img class='ui image' src='/articles/how-i-take-notes/anyHeaderText.svg'>
 </div>
+
+Notice the positive lookaheads. We don't want the header tags themselves in the matching, rather, we just want the text.
 
 The code is as follows:
 
