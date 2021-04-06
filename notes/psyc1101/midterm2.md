@@ -4,7 +4,7 @@ type: note
 title: PSYC1101 - Midterm 2
 date: 2021-01-14
 status: In Progress
-draft: true
+hidden: true
 professor: James Akula
 labels:
   - Midterm

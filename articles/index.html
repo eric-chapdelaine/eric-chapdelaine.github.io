@@ -7,7 +7,7 @@ layout: articles
   <div class="ui stackable centered three cards">
       {% assign article_pages = site.pages | where: "type", "article" %}
       {% for page in article_pages %}
-        {% unless page.draft %}
+        {% unless page.hidden %}
           {% include article-card.html page=page %}
         {% endunless %}
       {% endfor %}

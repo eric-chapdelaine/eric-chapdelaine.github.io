@@ -6,7 +6,7 @@ layout: notes
   <div class="ui stackable centered three cards">
       {% assign note_pages = site.pages | where: "type", "note" %}
       {% for page in note_pages %}
-        {% unless page.draft %}
+        {% unless page.hidden %}
           {% include note-card.html page=page %}
         {% endunless %}
       {% endfor %}
