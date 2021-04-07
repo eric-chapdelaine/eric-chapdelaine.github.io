@@ -14,9 +14,9 @@ A while ago I read a [great piece](https://castel.dev/post/lecture-notes-1/) by 
 
 I, however, wanted to change two things:
 1. $\LaTeX$ can be intimidating and ugly to work with real-time
-2. I didn't like the idea of having my notes in a PDF; I wanted to have them on a website so I can share them with others.
+2. I didn't like the idea of having my notes in a PDF; I wanted to have them on a website so it can be interactive and so I can have a permanent link to them even if I make revisions.
 
-My result? Well, check out my [notes page](/notes) page here on my website. Particularly, check out my [Calculus 1](/notes/math1341) notes and my [Computer Science 2](/notes/cs2510) notes.
+My result? Well, check out the [notes page](/notes) page here on my website. Particularly, check out my [Calculus 1](/notes/math1341) notes and my [Computer Science 2](/notes/cs2510) notes.
 
 <a target="_blank" class="ui button" href="https://www.buymeacoffee.com/ericchapd">Like this? Consider Donating</a>
 
@@ -90,7 +90,7 @@ I use kramdown to convert what I write during lecture (markdown as shown above) 
 
 ### JavaScript: Adding Features
 
-However, you can't do everything with just plain Markdown. But because it renders into HTML, you can do pretty much everything else with JavaScript.
+However, you can't do everything with just plain Markdown. But because it renders into HTML, you can manipulate the HTML any way you want with JavaScript.
 
 For example, mathematical formulae. I wanted to be able to use this method of note taking with math as well therefore reducing the limitations that digital note taking has. For this, I use MathJax, a JavaScript library that can render $\LaTeX$ into HTML. This way, I get the benefits of $\LaTeX$ without the complexness of using it for everything. Installing MathJax on your website automatically converts plaintext to $\LaTeX$, for example `$\lim_{n \to \infty} \frac{3n}{n} = 3$`, to $\lim_{n \to \infty} \frac{3n}{n} = 3$.
 
