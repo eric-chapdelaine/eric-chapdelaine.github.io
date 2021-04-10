@@ -92,11 +92,11 @@ I use kramdown to convert what I write during lecture (markdown as shown above) 
 
 However, you can't do everything with just plain Markdown. But because it renders into HTML, you can manipulate the HTML any way you want with JavaScript.
 
-For example, mathematical formulae. I wanted to be able to use this method of note taking with math as well therefore reducing the limitations that digital note taking has. For this, I use MathJax, a JavaScript library that can render $\LaTeX$ into HTML. This way, I get the benefits of $\LaTeX$ without the complexness of using it for everything. Installing MathJax on your website automatically converts plaintext to $\LaTeX$, for example `$\lim_{n \to \infty} \frac{3n}{n} = 3$`, to $\lim_{n \to \infty} \frac{3n}{n} = 3$.
+For example, mathematical formulae. I wanted to be able to use this method of note taking with math as well therefore reducing the limitations that digital note taking has. For this, I use KaTeX, a JavaScript library that can render $\LaTeX$ into HTML. This way, I get the benefits of $\LaTeX$ without the complexness of using it for everything. Installing KaTeX on your website automatically converts plaintext to $\LaTeX$, for example `$\lim_{n \to \infty} \frac{3n}{n} = 3$`, to $\lim_{n \to \infty} \frac{3n}{n} = 3$.
 
 Another thing that I add is automatic code syntax highlighting. For this, I use [highlight.js](https://highlightjs.org/). 
 
-MathJax and highlight.js are the only two scripts that I use that I didn't make myself. Even though I've only mentioned these two, anything written in JavaScript can be used. 
+KaTeX and highlight.js are the only two scripts that I use that I didn't make myself. Even though I've only mentioned these two, anything written in JavaScript can be used. 
 
 Two other features that I wanted to add were collapsible sections and automatic table of contents. For this, I relied on regular expressions. Regular expressions are just an advanced way to search for text. So, for example, you can search for text between other text. This is called 'positive lookahead' and it means that in order for something to be a match, there needs to be another piece of text, however, that other piece of text itself isn't matched.  Consider the following example:
 
