@@ -11,37 +11,48 @@ layout: notes
   <hr>
         <button class="ui button" onClick="setDetails(false);">Close all sections</button>
         <button class="ui button" onClick="setDetails(true);">Open all sections</button>
-    <div id="doc">
+    {% unless page.custom-div %}
+    <div class="cnote">
+    {% endunless %}
         {{ content }}
+    {% unless page.custom-div %}
     </div>
+    {% endunless %}
 </div>
 
 <script>
-    // Onetime:
-    //Create sections which are defined as area between two h1's
+    
+    var contents = "<nav>In Open Sections:";
     betweenH1 = /<h1.*?(?=<h1|$)/gs;
-    var doc = document.getElementById('doc').innerHTML;
-    var sectionsBody = doc.match(betweenH1);
-
     anyHeaderID = /(?<=<h[1-3][^>]*id=").*?(?=")/gs;
     anyHeaderText = /(?<=<h[123][^>]*>).*?(?=<\/h[123])/gs;
     var newHTML, curIDs, curHeaders;
-    document.getElementById('doc').innerHTML = "";
-    var contents = "<nav>In Open Sections:";
-    for (var i = 0; i < sectionsBody.length ; i++) {
-        //contents
-        curHeaders = sectionsBody[i].match(anyHeaderText);
-        curIDs = sectionsBody[i].match(anyHeaderID);
-        contents += "<div data-id='" + curIDs[0] + "' hidden>";
 
-        for (var j = 0; j < curHeaders.length ; j++){
-            contents += "<a href='#" + curIDs[j] + "'>" + curHeaders[j] + "</a><br />";
+    allCollapseableSections = document.getElementsByClassName("cnote");
+
+    for (var curBlock = 0; curBlock < allCollapseableSections.length; curBlock++) {
+        // Onetime:
+        //Create sections which are defined as area between two h1's
+        var doc = allCollapseableSections[curBlock].innerHTML;
+        var sectionsBody = doc.match(betweenH1);
+
+        allCollapseableSections[curBlock].innerHTML = "";
+        for (var i = 0; i < sectionsBody.length ; i++) {
+            //contents
+            curHeaders = sectionsBody[i].match(anyHeaderText);
+            curIDs = sectionsBody[i].match(anyHeaderID);
+            contents += "<div data-id='" + curIDs[0] + "' hidden>";
+
+            for (var j = 0; j < curHeaders.length ; j++){
+                contents += "<a href='#" + curIDs[j] + "'>" + curHeaders[j] + "</a><br />";
+            }
+            contents += "</div>";
+
+            // Body
+            allCollapseableSections[curBlock].innerHTML += "<details id='" + curIDs[0] + "'><summary>" + sectionsBody[i].match(anyHeaderText)[0] + "</summary>" + sectionsBody[i] + "</details>";
         }
-        contents += "</div>";
-
-        // Body
-        document.getElementById('doc').innerHTML += "<details id='" + curIDs[0] + "'><summary>" + sectionsBody[i].match(anyHeaderText)[0] + "</summary>" + sectionsBody[i] + "</details>";
     }
+    contents += "</nav";
     document.getElementsByClassName("contents")[0].innerHTML = contents;
     
     // Auto showing of sub-sections
