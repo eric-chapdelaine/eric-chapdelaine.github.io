@@ -56,7 +56,7 @@ Here is the class of 2020:
 
 Here is the class of 2021:
 <div style='width: 100%' class='ui rounded images'>
-<img class='ui image' src='/articles/word2vec/2020.png'>
+<img class='ui image' src='/articles/word2vec/2021.png'>
 </div>
 
 Keep in mind that the actual location of each word is arbitrary (which is why the numbers in the class of 2020 dataset are in a different location than the numbers of the class of 2021). It's the relationships that are important.
