@@ -1,7 +1,7 @@
 ---
 layout: article
 type: article
-title: Comparing the Class of 2020 and 2021 with Word2vec and Reddit
+title: Comparing the Class of 2020 and 2021 with Machine Learning and Reddit
 # All dates must be YYYY-MM-DD format!
 date: 2021-04-10
 comments: true
