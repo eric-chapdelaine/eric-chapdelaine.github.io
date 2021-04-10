@@ -3,7 +3,8 @@
 </div>
 
 <div class="ui text container segment">
-  <h1><span class="half-background">Welcome!</span></h1>
+  <h1><span id="header" class="half-background">Welcome!</span></h1>
+  <h1><span id="lowerHeader" class="half-background">Welcome!</span></h1>
   <p>Hi!</p> 
   <p>My name is Eric Chapdelaine. I am currently a freshman at Northeastern University studying Computer Science with a minor in Cognative Psychology.</p>
 
@@ -11,3 +12,17 @@
 
   <p>Feel free to contact me at <a href="mailto:chapdelaine.e@northeastern.edu">chapdelaine.e@northeastern.edu</a>.</p>
 </div>
+
+<style>
+#lowerHeader {
+    display: none;
+}
+@media (max-width: 500px) {
+    #header {
+        display: none;
+    }
+    #lowerHeader {
+        display: block;
+    }
+}
+<style>
