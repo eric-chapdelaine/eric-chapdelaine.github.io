@@ -3,8 +3,19 @@ layout: notes
 ---
 
 <div style="margin-top: 20px; margin-bottom: 20px" class="ui text container">
+    <h1><span class="half-background">In Progress:</span></h1>
   <div class="ui stackable centered three cards">
-      {% assign note_pages = site.pages | where: "type", "note" %}
+      {% assign note_pages = site.pages | where: "type", "note" | where: "status", "In Progress"%}
+      {% for page in note_pages %}
+        {% unless page.hidden %}
+          {% include note-card.html page=page %}
+        {% endunless %}
+      {% endfor %}
+  </div>
+
+  <h1><span class="half-background">Completed Classes:</span></h1>
+  <div class="ui stackable centered three cards">
+      {% assign note_pages = site.pages | where: "type", "note" | where: "status", "Complete"%}
       {% for page in note_pages %}
         {% unless page.hidden %}
           {% include note-card.html page=page %}
