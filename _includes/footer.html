@@ -1,1 +1,10 @@
+<!-- Have links go to correct location (even when in details tag) -->
+<script>
 
+    $("[href^='#']").on("click", function() {
+    var $targetDIV = $(this.getAttribute("href"));
+    if ($targetDIV.is(":hidden")) {
+        $targetDIV.closest("details").prop("open", true);
+    }
+    });
+</script>
