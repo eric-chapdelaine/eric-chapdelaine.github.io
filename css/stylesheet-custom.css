@@ -15,6 +15,11 @@ code.highlighter-rouge {
     padding-right: 4px;
 }
 
+pre > code {
+    font-size: 10px;
+
+}
+
 body {
     background-color: #dfe6e9;
     font-family: "Lato", sans-serif;
@@ -100,4 +105,8 @@ strong.note-block {
 td, th {
   border: 1px solid #ddd;
   padding: 8px;
+}
+
+img {
+    width: 100%
 }
