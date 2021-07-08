@@ -57,7 +57,7 @@ layout: notes
     
     // Auto showing of sub-sections
     function showSubsections(e) {
-        const item = document.querySelector(`[data-id=${e.target.id}]`);
+        const item = document.querySelector(`[data-id='${e.target.id}']`);
         item.toggleAttribute('hidden');
     }
 
