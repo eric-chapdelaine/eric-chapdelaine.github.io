@@ -1,25 +1,85 @@
 ---
 layout: notes 
 ---
+<head>
+    <link href="minimal-table.css" rel="stylesheet" type="text/css">
+</head>
 
+ <style>
+        tbody {
+          font-size: 90%;
+          font-style: italic;
+        }
+
+        tfoot {
+          font-weight: bold;
+        }
+        .tbl { overflow-x: auto; }
+th, td { min-width: 100px; }
+    </style>
+    <!-- 
+        .tbl { overflow-x: scroll; } -->
+  </head>
 <div style="margin-top: 20px; margin-bottom: 20px" class="ui text container">
-    <h1><span class="half-background">In Progress:</span></h1>
-  <div class="ui stackable centered three cards">
-      {% assign note_pages = site.pages | where: "type", "note" | where: "status", "In Progress"%}
-      {% for page in note_pages %}
-        {% unless page.hidden %}
-          {% include note-card.html page=page %}
-        {% endunless %}
-      {% endfor %}
-  </div>
+  <body>
+    <div class="tbl">
+      <table>
+        <thead>
+          <tr>
+            <th>Year of Study</th>
+            <th>Fall</th>
+            <th>Spring</th>
+            <th>Summer 1</th>
+            <th>Summer 2</th>
+          </tr>
+        </thead>
+        <tbody>
+        <!-- First Year -->
+          <tr>
+            <td rowspan="4">1st Year</td>
+            <td><a href="cs1800">Discrete Structures</a></td>
+            <td><a href="cs2510">Fundamentals of Computer Science II</a></td>
+            <td><a href="cs3500">Object-Oriented Design</a></td>
+            <td><a href="phil2325">Ancient Philosophy & Political Thought</a></td>
+          </tr>
+          <tr>
+              <td><a href="engw1111">First Year Writing</a></td>
+              <td><a href="math1341">Calculus 1 for Science & Engineering</a></td>
+              <td><a href="math1342">Calculus 2 for Science & Engineering</a></td>
+              <td><a href="math2331">Linear Algebra</a></td>
+          </tr>
+          <tr>
+              <td><a href="hist1215">Origins of Today</a></td>
+              <td><a href="psyc1101">Foundations of Psychology</a></td>
+              <!-- <td />
+              <td /> -->
+          </tr>
+          <tr>
+              <td><a href="cs2500">Fundamentals of Computer Science I</a></td>
+              <td><a href="engl2150">Literature & Digital Diversity</a></td>
+              <!-- <td />
+              <td /> -->
+          </tr>
+          <tr>
+              <td colspan="5"/>
+          </tr>
+          <!-- Second Year -->
+          <tr>
+            <td rowspan="4">2nd Year</td>
+            <td><a href="math1365">Introduction to Mathematical Reasoning</a></td>
+          </tr>
+          <tr>
+            <td><a href="cs2810">Mathematics of Data Models</a></td>
+          </tr>
+          <tr>
+            <td><a href="cs5800">Algorithms</a></td>
+          </tr>
+          <tr>
+            <td><a href="comm1112">Public Speaking</a></td>
+          </tr>
+        </tbody>
+    </table>
+    </div>
 
-  <h1><span class="half-background">Completed Classes:</span></h1>
-  <div class="ui stackable centered three cards">
-      {% assign note_pages = site.pages | where: "type", "note" | where: "status", "Complete"%}
-      {% for page in note_pages %}
-        {% unless page.hidden %}
-          {% include note-card.html page=page %}
-        {% endunless %}
-      {% endfor %}
-  </div>
+  </body>
 </div>
