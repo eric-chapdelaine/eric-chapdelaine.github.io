@@ -1,0 +1,317 @@
+---
+layout: default
+---
+
+{% include sidebar.html %}
+
+<script src="https://unpkg.com/lunr/lunr.js"></script>
+
+<div style="margin-top: 20px; margin-bottom: 20px" class="ui text container">
+  <div class="ui stackable centered three cards">
+    <div class="segment ui text container document">
+    <h1 id=""><span class="half-background">Northeastern Resources</span></h1>
+    <hr>
+    <form id="form" onsubmit="submitSearch()">
+        <div class="ui action input">
+            <input placeholder="Search..." type="text" id="search" >
+            <button class="ui icon button">
+                <i class="search icon"></i>
+              </button>
+        </div>
+    </form>
+    <div id="results">
+    </div>
+    <hr>
+    <details>
+        <summary>
+            Academics, Classes & Registration
+        </summary>
+        <div id="academics">
+        </div>
+    </details>
+    <details>
+        <summary>
+            Careers & Employment
+        </summary>
+        <div id="careers">
+        </div>
+    </details>
+    <details>
+        <summary>
+            Experiential Learning
+        </summary>
+        <div id="experiential">
+        </div>
+    </details>
+    <details>
+        <summary>
+            Financial Services
+        </summary>
+        <div id="financial">
+        </div>
+    </details>
+    <details>
+        <summary>
+           Graduation 
+        </summary>
+        <div id="graduation">
+        </div>
+    </details>
+    <details>
+        <summary>
+            Health & Wellness
+        </summary>
+        <div id="health">
+        </div>
+    </details>
+    <details>
+        <summary>
+           Housing, Dining & Campus 
+        </summary>
+        <div id="housing">
+        </div>
+    </details>
+    <details>
+        <summary>
+          IT Support & Resources 
+        </summary>
+        <div id="it">
+        </div>
+    </details>
+    <details>
+        <summary>
+         Library & Research 
+        </summary>
+        <div id="library">
+        </div>
+    </details>
+    <details>
+        <summary>
+         Miscellaneous
+        </summary>
+        <div id="misc">
+        </div>
+    </details>
+    </div>
+  </div>
+</div>
+
+<script>
+    var form = document.getElementById("form");
+    function removeRefresh(event) { event.preventDefault(); }
+    form.addEventListener('submit', removeRefresh);
+
+    var academics = [
+        {"name": "Academic Calendar", "link": "https://registrar.northeastern.edu/group/calendar/"},
+        {"name": "Canvas LMS", "link": "https://canvas.northeastern.edu/"},
+        {"name": "Course Catalog", "link": "https://wl11gp.neu.edu/udcprod8/bwckctlg.p_disp_dyn_ctlg"},
+        {"name": "Course Descriptions", "link": "http://catalog.northeastern.edu/course-descriptions/"},
+        {"name": "Course Registration", "link": "https://nubanner.neu.edu/StudentRegistrationSsb"},
+        {"name": "I Am Here", "link": "https://nu.outsystemsenterprise.com/studentinfo/IAmHere"},
+        {"name": "Make Appointment with Advisor (Navigate)", "link": "https://northeastern.campus.eab.com/student/appointments/new"},
+        {"name": "Medical Applicant Portal (Existing/Registered Users)", "link": "https://northeastern.secure.force.com/public/apex/ITSPHAdvisingRegistrationPageEntry"},
+        {"name": "Medical Applicant Portal (New User Registration)", "link": "https://northeastern.secure.force.com/public/apex/ITSPHAdvisingProfileEntry"},
+        {"name": "Mentoring and Advising Services", "link": "http://www.northeastern.edu/undergraduate/mentoring-advising/"},
+        {"name": "My Degree Audit", "link": "https://prod-web.neu.edu/wasapp/DARSStudent/RequestAuditServlet"},
+        {"name": "My Grades", "link": "https://nubanner.neu.edu/ssomanager/c/SSB?pkg=bwskogrd.P_ViewTermGrde"},
+        {"name": "My Schedule", "link": "https://nubanner.neu.edu/ssomanager/c/SSB?pkg=bwskfshd.P_CrseSchdDetl"},
+        {"name": "My Transcript", "link": "https://nubanner.neu.edu/ssomanager/c/SSB?pkg=bwskotrn.P_ViewTermTran"},
+        {"name": "myTRACE - Teacher Rating and Course Evaluation", "link": "https://www.applyweb.com/eval/shibboleth/neu/36892"},
+        {"name": "Registrar Forms", "link": "https://northeastern.secure.force.com/public/apex/ITSASCMainEntry"},
+        {"name": "Registrar Self Service", "link": "https://nubanner.neu.edu/ssomanager/c/SSB?pkg=twbkwbis.P_GenMenu?name=bmenu.P_StuMainMnu"},
+        {"name": "Registration Process", "link": "https://www.northeastern.edu/registrar/schedall.html"},
+        {"name": "Schedule of Classes", "link": "https://wl11gp.neu.edu/udcprod8/NEUCLSS.p_disp_dyn_sched"},
+        {"name": "Trace Survey Results 2012-2015", "link": "https://prod-web.neu.edu/wasapp/TRACE25/secure/index.jsp"},
+    ];
+
+    addResources("academics", academics);
+
+    var careers = [
+        {"name": "Campus Employment & Work Study", "link": "https://qafederation.ngwebsolutions.com/sp/startSSO.ping?PartnerIdpId=https://neuidmsso.neu.edu/idp/shibboleth&SpSessionAuthnAdapterId=neuSp"},
+        {"name": "Career Counselor Appointments", "link": "https://northeastern.secure.force.com/public/apex/ITSApptCalMainEntry"},
+        {"name": "Career Design Calendar", "link": "https://nucareers.northeastern.edu/event-calendar.htm"},
+        {"name": "Career Videos", "link": "http://www.youtube.com/user/NUCareerServices"},
+        {"name": "Contact Career Design Team", "link": "https://careers.northeastern.edu/contact/"},
+        {"name": "Decide on a Career or Major", "link": "https://careers.northeastern.edu/group/career-guides/"},
+        {"name": "Digital Career Resources", "link": "https://careers.northeastern.edu/article/job-search-resources/"},
+        {"name": "e-Portfolio", "link": "https://prod-web.neu.edu/wasapp/digicationnu/NULogin"},
+        {"name": "Job and Internship Search Guidance", "link": "https://careers.northeastern.edu/group/job-internship-and-co-op-search/"},
+        {"name": "Khoury Co-op/Coordinator Appointment Calendar", "link": "https://northeastern.campus.eab.com/student/appointments/new"},
+        {"name": "NUsource", "link": "https://nusource.northeastern.edu/"},
+        {"name": "NUworks (activity starting spring 2021)", "link": "https://northeastern-csm.symplicity.com/students/"},
+        {"name": "Order Northeastern Student Buisness Cards", "link": "http://www.pressite.com/NU_Students/Login.aspx"},
+        // {"name": "Work Study Dashboard", "link": ""},
+
+    ];
+
+    addResources("careers", careers);
+
+    var experiential = [
+        {"name": "Co-op/Explore Co-op", "link": "http://coopstatus.neu.edu/myneu/coop/gettingStarted.aspx"},
+        {"name": "Co-op/NUcareers Help", "link": "https://www.northeastern.edu/nucareershelp/students/"},
+        {"name": "Co-op/NUworks (activity starting spring 2021)", "link": "https://northeastern-csm.symplicity.com/students/"},
+        {"name": "Global Experiences/Getting Started", "link": "http://www.northeastern.edu/geo/"},
+        {"name": "Global Experiences/International Service-Learning", "link": "http://www.northeastern.edu/geo/dialogue/program-overview/"},
+        {"name": "Global Experiences/International Study", "link": "http://www.northeastern.edu/studyabroad"},
+        {"name": "Service Learning and Student Research/Student Research", "link": "http://www.northeastern.edu/experiential-learning/student-research/"},
+        {"name": "Tools/Co-op Connections", "link": "http://www.northeastern.edu/coopconnections/"},
+        {"name": "Tools/Housing Share", "link": "https://aptsearch.northeastern.edu/"},
+        {"name": "Tools/Ride Share", "link": "https://prod-web.neu.edu/wasapp/RideShare/secure/index.jsp"},
+    ];
+    addResources("experiential", experiential);
+
+    var financial = [
+        {"name": "Direct Deposit Form", "link": "https://neuforms3.neu.edu/lfserver/DirectDeposit.xfm"},
+        {"name": "Double Husky Scholarship", "link": "https://www.northeastern.edu/graduate/admissions-information/scholarships/double-husky-scholarship/"},
+        {"name": "Federal Loan Entrance Counseling", "link": "https://studentloans.gov/"},
+        {"name": "Husky Card Account Details", "link": "https://nu.outsystemsenterprise.com/StudentFinance/HuskyCardAccounts"},
+        {"name": "Make a Payment with NUPay", "link": "https://prod-web.neu.edu/wasapp/cashnet/sso/secure/s/main.action"},
+        {"name": "Make an International Payment", "link": "https://prod-web.neu.edu/wasapp/ipayments/secure/main.action"},
+        {"name": "My Financial Aid Status", "link": "https://www.pfw.neu.edu/netpartnerstudent"},
+        {"name": "Scholarship Application", "link": "https://nextgensso.com/sp/startSSO.ping?PartnerIdpId=https://neuidmsso.neu.edu/idp/shibboleth&TargetResource=https://northeastern.scholarships.ngwebsolutions.com/scholarx_studentportal.aspx"},
+        {"name": "Student Account, Payment and E-bill Information", "link": "https://nu.outsystemsenterprise.com/StudentFinance/ViewBill"},
+        {"name": "Student Employee Self-Service", "link": "https://nubanner.neu.edu/ssomanager/c/SSB?pkg=twbkwbis.P_GenMenu?name=pmenu.P_MainMnu"},
+        {"name": "Student Financial Responsibility Agreement (SFRA)", "link": "https://nu.outsystemsenterprise.com/studentinfo/SFRA"},
+    ];
+    addResources("financial", financial);
+
+    var graduation = [
+        {"name": "Apply to Graduate", "link": "https://nubanner.neu.edu/ssomanager/c/SSB?pkg=bwskgrad.p_disp_gradapp"},
+        {"name": "Combined Degrees", "link": "https://www.northeastern.edu/admissions/academics/combined-majors/"},
+        {"name": "Enrollment/Degree Verification Request", "link": "https://prod-web.neu.edu/wasapp/EnrollmentVerification"},
+        {"name": "Graduation Clearance Contract", "link": "https://northeastern.secure.force.com/public/apex/ITSGCCStudentEntry"},
+        {"name": "NU Commencement Website", "link": "http://www.neu.edu/commencement/"},
+        {"name": "University Withdrawl Request", "link": "https://northeastern.secure.force.com/public/apex/ITSASCUWEntry"},
+        {"name": "View Application to Graduate", "link": "https://nubanner.neu.edu/ssomanager/c/SSB?pkg=bwskgrad.p_view_gradapp"},
+    ];
+    addResources("graduation", graduation);
+
+    var health = [
+        {"name": "Appointment Calendar", "link": "https://northeastern.secure.force.com/public/apex/ITSApptCalMainEntry"},
+        {"name": "COVID-19 Test Scheduler", "link": "https://covid19-testing.northeastern.edu/?utm_source=student&utm_medium=portal&utm_campaign=reopening"},
+        {"name": "COVID-19 Testing Consent", "link": "https://service.northeastern.edu/wellness?id=wellness_cat_item&sys_id=d96066e2dbe65010a37cd206ca961970&utm_source=student&utm_medium=portal&utm_campaign=reopening"},
+        {"name": "COVID-19 Vaccine Rollout", "link": "https://service.northeastern.edu/wellness?id=vaccination_homepage"},
+        {"name": "Disability Resource Center (DRC) Website", "link": "http://www.northeastern.edu/drc"},
+        {"name": "DRC Services", "link": "https://northeastern.secure.force.com/public/apex/ITSDRCMainEntry"},
+        {"name": "Expectations for Return to Campus Attestation", "link": "https://service.northeastern.edu/wellness?id=wellness_cat_item&sys_id=f2121eaedb665010a37cd206ca961934&utm_source=student&utm_medium=portal&utm_campaign=reopening"},
+        {"name": "Health Plan Fee Waiver (NUSHP) Northeastern University Student Health Plan", "link": "https://www.gallagherstudent.com/northeastern"},
+        {"name": "MentorHub NU", "link": "https://learner.northeastern.mentorhubapp.org/login"},
+        {"name": "myHealth Center", "link": "https://neuportal.eclinicalweb.com/neu/jsp/LDAPlogin.jsp"},
+        {"name": "Safe Campus Guide", "link": "http://news.northeastern.edu/coronavirus/"},
+        {"name": "Wellness Portal", "link": "https://services.northeastern.edu/wellness?utm_source=student&utm_medium=portal&utm_campaign=reopening"},
+        {"name": "Daily Wellness Check", "link": "https://service.northeastern.edu/wellness?id=wellness_cat_item&sys_id=340f4312dbda1c102d2caa82ca9619bf"},
+    ];
+    addResources("health", health);
+
+    var housing = [
+        {"name": "Apply for Parking", "link": "https://grs.lazparking.com/Widget/du/#buynow?l=81354&t=r&isocode=EN"},
+        {"name": "Campus Map/Directions", "link": "https://www.northeastern.edu/campusmap/"},
+        {"name": "Campus Maps", "link": "https://campusmap.northeastern.edu/"},
+        {"name": "Check out what's playing on NUTV", "link": "http://www.youtube.com/user/NortheasternTV"},
+        {"name": "Dining Services", "link": "http://www.nudining.com/"},
+        {"name": "Facilities & Residential Life Work Request", "link": "https://workrequest.neu.edu/FAWorkRequestForm.aspx"},
+        {"name": "Housing Online", "link": "https://neuidmsso.neu.edu/rmsmercury"},
+        {"name": "Husky Card Preferences", "link": "https://huskycardcenter.neu.edu/student/welcome.php"},
+        {"name": "HuskyCable HD", "link": "http://www.northeastern.edu/its/services/huskycablehdplus/broadcast/"},
+        {"name": "Internet Protocol Television (IPTV)", "link": "http://www.northeastern.edu/its/services/huskycablehdplus/iptv/"},
+        {"name": "LaundryView", "link": "http://www.laundryview.com/"},
+        {"name": "myTickets", "link": "https://mytickets.northeastern.edu/Shibboleth.sso/Login?target=https%3A%2F%2Fmytickets%2Enortheastern%2Eedu%2FOnline%2Fdefault%2Easp&entityID=https://neuidmsso.neu.edu/idp/shibboleth"},
+        {"name": "Non Resident Sticker", "link": "https://nu.outsystemsenterprise.com/studentinfo/VehicleRegistration"},
+        {"name": "Northeastern University Parking Web Site", "link": "http://www.northeastern.edu/parking/"},
+        {"name": "NU Bookstore", "link": "http://northeastern.bncollege.com/"},
+        {"name": "NU Cauldron Yearbook", "link": "https://www.northeastern.edu/cauldron/"},
+        {"name": "Profiler Meal Plan Services", "link": "https://nubanner.neu.edu/ssomanager/c/SSB?pkg=bzskoacc.p_ppinfo"},
+        {"name": "Standard Meal Plan Services", "link": "https://nubanner.neu.edu/ssomanager/c/SSB?pkg=bzskoacc.p_selmp"},
+        {"name": "Student Email Account", "link": "https://outlook.office365.com/owa/?realm=northeastern.edu"},
+        {"name": "Student Organizations", "link": "https://neu.campuslabs.com/engage"},
+        {"name": "Study Spaces", "link": "https://nuflex.northeastern.edu/study-spaces/?utm_source=study_spaces%26utm_medium=resources%26utm_campaign=student_hub"},
+        {"name": "Swipe2Care", "link": "https://huskycardcenter.neu.edu/common/local_mealdonation.php"},
+        {"name": "TurboVote Voter Registration", "link": "https://neu.turbovote.org/"},
+        {"name": "Zipcar at NU", "link": "http://www.zipcar.com/northeastern/"},
+    ];
+    addResources("housing", housing);
+
+    var it = [
+        {"name": "2-Factor Authentication Device Management - (DUO)", "link": "https://2fa.northeastern.edu/"},
+        {"name": "Access Office365 Pro Plus", "link": "https://sts.northeastern.edu/adfs/ls/?wa=wsignin1.0&wtrealm=urn:federation:MicrosoftOnline&wctx=wa%3Dwsignin1.0%26rpsnv%3D3%26ver%3D6.4.6456.0%26wp%3DMCMBI%26wreply%3Dhttps:%252F%252Fportal.office.com%252Flanding.aspx%253Ftarget%253D%25252fOLS%25252fMySoftware.aspx%26lc%3D1033%26id%3D501392"},
+        {"name": "Discounted Dell, Apple, and Microsoft computers for students", "link": "https://computer-discounts.northeastern.edu/personal/?utm_source=student%26utm_medium=portal%26utm_campaign=engagement"},
+        {"name": "Free and Discounted Software for your computer", "link": "http://neu.onthehub.com/"},
+        {"name": "Gartner IT Research Library", "link": "https://ssofed.gartner.com/sp/startSSO.ping?PartnerIdpId=https://neuidmsso.neu.edu/idp/shibboleth"},
+        {"name": "Important information about the Microsoft Student Advantage program", "link": "http://northeastern.edu/its/services/software/student-advantage/"},
+        {"name": "Knowledge Base", "link": "https://service.northeastern.edu/tech?id=kb_view2&kb_id=fea71b7d4f8e8f0099c2fd511310c766"},
+        {"name": "Manage Accounts and Access for Family/Other", "link": "https://nu.outsystemsenterprise.com/StudentParentManagement/ManageFamily"},
+        {"name": "New Computer Purchases - Recommendations", "link": "http://www.northeastern.edu/resnet/articles/Your%20New%20Computer/System%20Recommendations.html"},
+        {"name": "Software Downloads", "link": "https://prod-web.neu.edu/wasapp/SoftwareDistribution/secure/index.jsp"},
+        {"name": "Tech Service Portal", "link": "https://service.northeastern.edu/tech?utm_source=student_links%26utm_medium=portal%26utm_campaign=tech_help"},
+        {"name": "Technology Training", "link": "https://training.its.northeastern.edu/?utm_source=student&utm_medium=portal&utm_campaign=reopening"},
+    ];
+    addResources("it", it);
+
+    var library = [
+        {"name": "Ask A Librarian", "link": "https://library.northeastern.edu/get-help/ask-a-librarian"},
+        {"name": "Library Website", "link": "https://library.northeastern.edu/"},
+        {"name": "Scholar OneSearch - Search Books and Articles", "link": "https://onesearch.library.northeastern.edu/"},
+    ];
+    addResources("library", library);
+
+    var misc = [
+        {"name": "Change Address", "link": "https://nu.outsystemsenterprise.com/studentinfo/CurrentAddress"},
+        {"name": "Civic Engagement (CEP) Time Logs", "link": "https://northeastern.secure.force.com/public/apex/ITSComEngMainEntry"},
+        {"name": "COVID-19 Test Result Portal", "link": "http://covid19-results.northeastern.edu/"},
+        {"name": "EHS Website", "link": "https://www.northeastern.edu/ehs/"},
+        {"name": "Emergency Contact Information", "link": "https://nu.outsystemsenterprise.com/studentinfo/EmergencyContacts"},
+        {"name": "FERPA Privacy Policy", "link": "https://nubanner.neu.edu/ssomanager/c/SSB?pkg=NEUFERPA.p_display_ferpa"},
+        {"name": "Hybrid NUflex", "link": "https://nuflex.northeastern.edu/?utm_source=student&utm_medium=portal&utm_campaign=reopening"},
+        {"name": "LinkedIn Learning", "link": "https://linkedinlearning.northeastern.edu/?utm_source=portal%26utm_medium=training%26utm_campaign=student"},
+        {"name": "My Travel Plans", "link": "https://travelsecurity.garda.com/checkMail"},
+        {"name": "NU Space Scheduling Online (NUSSO)", "link": "https://nuevents.neu.edu/"},
+        {"name": "NU Writing Center", "link": "http://www.northeastern.edu/writingcenter/"},
+        {"name": "PaperCut Printing", "link": "https://papercut.northeastern.edu/user"},
+        {"name": "Policies on myNortheastern", "link": "http://www.northeastern.edu/policies/"},
+        {"name": "Sites at Northeastern", "link": "https://sites.northeastern.edu/"},
+        {"name": "Student Employment Information", "link": "https://studentfinance.northeastern.edu/student-employment/"},
+        {"name": "Student Organizations", "link": "https://neu.campuslabs.com/engage/"},
+        {"name": "Student Services Portal", "link": "https://service.northeastern.edu/appointments"},
+        {"name": "Tutoring", "link": "https://northeastern.secure.force.com/public/apex/ITSTutorEntry"},
+        {"name": "View the Classroom", "link": "https://classroom.neu.edu/Shibboleth.sso/Login"},
+    ];
+    addResources("misc", misc);
+
+    function addResources(sectionId, resources) {
+        for (let i = 0; i < resources.length; i++) {
+            document.getElementById(sectionId).insertAdjacentHTML("beforeend", "<a href=\"" + resources[i]["link"] + "\">" + resources[i]["name"] + "</a><br />")
+        }
+    }
+
+    var all = academics.concat(careers, experiential, financial, graduation, health, housing, it, library, misc);
+
+    var allId = []
+    for (let i  = 0; i < all.length; i++) {
+        allId.push(all[i]);
+        allId[i]["id"] = i;
+    }
+
+    var idx = lunr(function () {
+    this.ref('id')
+    this.field('name')
+
+    allId.forEach(function (doc) {
+        this.add(doc)
+    }, this)
+    })
+
+function submitSearch() {
+    var query = document.getElementById("search").value;
+    var answer = idx.search(query)
+
+    const displayedResults = document.getElementById("results");
+    displayedResults.innerHTML = '<strong>Search Results</strong>:<br />';
+
+    var results = [];
+    for (let i = 0; i < answer.length; i++) {
+        var index = answer[i].ref;
+        displayedResults.insertAdjacentHTML("beforeend", "<a href=\"" + all[index]["link"] + "\">" + all[index]["name"] + "</a><br />")
+    }
+}
+
+</script>
