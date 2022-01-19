@@ -1,0 +1,26 @@
+---
+layout: none
+---
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Eric Chapdelaine</title>
+    <description>Computer Science student at Northeastern University</description>
+    <link>https://www.ericchapdelaine.com/</link>
+    {% assign article_pages = site.pages | where: "type", "article" %}
+    {% assign project_pages = site.pages | where: "type", "project" %}
+    {% assign posts = article_pages | concat: project_pages | sort:"date" %}
+    {% for page in posts reversed %}
+      {% unless page.hidden %}
+        <item>
+          <title>{{ page.title | xml_escape }}</title>
+          <description>{{ page.content | strip_html | truncatewords: 40 | xml_escape }}</description>
+          <pubDate>{{ page.date | date_to_xmlschema }}</pubDate>
+          <link>{{ page.url | prepend: site.url }}</link>
+          <guid isPermaLink="true">https://www.ericchapdelaine.com{{ page.url }}</guid>
+        </item>
+      {% endunless %}
+    {% endfor %}
+  </channel>
+</rss>
+
