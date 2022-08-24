@@ -1,0 +1,13 @@
+<a class="card" href="{{ site.baseurl }}{{ include.page.url | split: '.html'[0] }}">
+    {% if include.page.image %}
+    <div class="image">
+        <img src="/topics/{{ include.page.image }}">
+    </div>
+    {% endif %}
+  <div class="content">
+    <span class="title">{{ include.page.title }}</span>
+    <div class="meta">
+        <span class="date">{{ include.page.summary }}</span>
+    </div>
+  </div>
+</a>
